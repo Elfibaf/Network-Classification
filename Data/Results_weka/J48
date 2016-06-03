@@ -1,0 +1,61 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     Capture_02_06_2016.pcap-weka.filters.unsupervised.attribute.StringToNominal-Rlast-weka.filters.unsupervised.attribute.StringToNominal-Rlast-weka.filters.unsupervised.attribute.NumericToNominal-Rfirst-last-weka.filters.unsupervised.attribute.StringToNominal-Rfirst-last
+Instances:    626
+Attributes:   10
+              fc_id
+              fc_tstamp
+              fc_duration
+              fc_proto
+              fc_src_addr
+              fc_src_port
+              fc_dst_addr
+              fc_dst_port
+              crl_group
+              class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+fc_dst_port = 53: DNS (414.0)
+fc_dst_port = 80: HTTP (184.0)
+fc_dst_port = 443: HTTPS (28.0)
+
+Number of Leaves  : 	3
+
+Size of the tree : 	4
+
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         626              100      %
+Incorrectly Classified Instances         0                0      %
+Kappa statistic                          1     
+Mean absolute error                      0     
+Root mean squared error                  0     
+Relative absolute error                  0      %
+Root relative squared error              0      %
+Total Number of Instances              626     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 1,000    0,000    1,000      1,000    1,000      1,000    1,000     1,000     HTTPS
+                 1,000    0,000    1,000      1,000    1,000      1,000    1,000     1,000     HTTP
+                 1,000    0,000    1,000      1,000    1,000      1,000    1,000     1,000     DNS
+Weighted Avg.    1,000    0,000    1,000      1,000    1,000      1,000    1,000     1,000     
+
+=== Confusion Matrix ===
+
+   a   b   c   <-- classified as
+  28   0   0 |   a = HTTPS
+   0 184   0 |   b = HTTP
+   0   0 414 |   c = DNS
+

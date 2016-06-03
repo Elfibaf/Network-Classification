@@ -1,0 +1,255 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.SMO -C 1.0 -L 0.001 -P 1.0E-12 -N 0 -V -1 -W 1 -K "weka.classifiers.functions.supportVector.PolyKernel -E 1.0 -C 250007" -calibrator "weka.classifiers.functions.Logistic -R 1.0E-8 -M -1 -num-decimal-places 4"
+Relation:     Capture_02_06_2016.pcap-weka.filters.unsupervised.attribute.Remove-R9-weka.filters.unsupervised.attribute.StringToNominal-Rfirst-last
+Instances:    626
+Attributes:   9
+              fc_id
+              fc_tstamp
+              fc_duration
+              fc_proto
+              fc_src_addr
+              fc_src_port
+              fc_dst_addr
+              fc_dst_port
+              class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+SMO
+
+Kernel used:
+  Linear Kernel: K(x,y) = <x,y>
+
+Classifier for classes: HTTPS, HTTP
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+        -0.0252 * (normalized) fc_id
+ +       0.0114 * (normalized) fc_tstamp
+ +      -0.0244 * (normalized) fc_duration
+ +      -0.0329 * (normalized) fc_src_port
+ +      -0.0152 * (normalized) fc_dst_addr=173.252.74.22
+ +      -0.0086 * (normalized) fc_dst_addr=31.13.74.7
+ +      -0.0074 * (normalized) fc_dst_addr=173.252.74.68
+ +      -0.0163 * (normalized) fc_dst_addr=74.125.24.103
+ +       0.0008 * (normalized) fc_dst_addr=95.131.136.68
+ +      -0      * (normalized) fc_dst_addr=80.82.201.94
+ +       0      * (normalized) fc_dst_addr=195.54.48.9
+ +       0      * (normalized) fc_dst_addr=62.161.94.220
+ +       0.003  * (normalized) fc_dst_addr=195.54.48.228
+ +       0.0066 * (normalized) fc_dst_addr=178.250.2.74
+ +       0.0092 * (normalized) fc_dst_addr=193.1.253.139
+ +       0.0037 * (normalized) fc_dst_addr=54.192.30.248
+ +       0.0034 * (normalized) fc_dst_addr=50.17.240.19
+ +      -0      * (normalized) fc_dst_addr=93.184.221.200
+ +       0.0016 * (normalized) fc_dst_addr=178.250.2.80
+ +       0.002  * (normalized) fc_dst_addr=185.86.137.17
+ +       0.0023 * (normalized) fc_dst_addr=193.1.253.137
+ +       0.0054 * (normalized) fc_dst_addr=96.6.2.194
+ +      -0.0035 * (normalized) fc_dst_addr=54.230.29.187
+ +       0.0041 * (normalized) fc_dst_addr=178.250.0.70
+ +       0.0085 * (normalized) fc_dst_addr=107.178.244.242
+ +       0      * (normalized) fc_dst_addr=23.43.75.27
+ +       0.0049 * (normalized) fc_dst_addr=5.135.99.245
+ +      -0.004  * (normalized) fc_dst_addr=216.58.208.46
+ +       0.0062 * (normalized) fc_dst_addr=185.86.138.16
+ +       0.0021 * (normalized) fc_dst_addr=184.73.162.65
+ +       0.0028 * (normalized) fc_dst_addr=37.252.166.209
+ +       0.001  * (normalized) fc_dst_addr=216.58.210.2
+ +       0.007  * (normalized) fc_dst_addr=81.26.166.11
+ +       0.0047 * (normalized) fc_dst_addr=93.184.221.133
+ +       0.0047 * (normalized) fc_dst_addr=54.192.29.162
+ +       0.0061 * (normalized) fc_dst_addr=107.178.244.41
+ +       0.0007 * (normalized) fc_dst_addr=188.165.32.247
+ +       0.0013 * (normalized) fc_dst_addr=178.250.2.66
+ +       0.0015 * (normalized) fc_dst_addr=193.1.253.144
+ +      -0.0066 * (normalized) fc_dst_addr=74.125.206.156
+ +      -0.0098 * (normalized) fc_dst_addr=54.76.58.225
+ +      -0      * (normalized) fc_dst_addr=54.77.38.194
+ +       0.0001 * (normalized) fc_dst_addr=74.125.206.157
+ +       0.0041 * (normalized) fc_dst_addr=23.200.96.185
+ +       0      * (normalized) fc_dst_addr=178.250.0.67
+ +       0.0049 * (normalized) fc_dst_addr=91.216.195.218
+ +       0.0016 * (normalized) fc_dst_addr=52.49.233.203
+ +      -0.0112 * (normalized) fc_dst_addr=37.252.163.168
+ +      -0.0072 * (normalized) fc_dst_addr=172.217.16.162
+ +       0      * (normalized) fc_dst_addr=176.31.16.193
+ +      -0.001  * (normalized) fc_dst_addr=54.228.191.164
+ +       0.0019 * (normalized) fc_dst_addr=193.1.253.136
+ +      -0.0077 * (normalized) fc_dst_addr=184.73.198.9
+ +       0.0055 * (normalized) fc_dst_addr=178.255.83.1
+ +       0.0028 * (normalized) fc_dst_addr=23.2.25.146
+ +      -0.0085 * (normalized) fc_dst_addr=54.246.112.35
+ +       0.0053 * (normalized) fc_dst_addr=72.167.239.239
+ +       0.0016 * (normalized) fc_dst_addr=46.105.198.136
+ +      -0.0035 * (normalized) fc_dst_addr=46.228.164.11
+ +      -0.0035 * (normalized) fc_dst_addr=104.155.70.73
+ +      -0.0026 * (normalized) fc_dst_addr=52.19.114.52
+ +       0.0057 * (normalized) fc_dst_addr=107.178.245.205
+ +      -0.0105 * (normalized) fc_dst_addr=54.175.101.67
+ +      -2.1437 * (normalized) fc_dst_port
+ +       1.1843
+
+Number of kernel evaluations: 15225 (86.916% cached)
+
+Classifier for classes: HTTPS, DNS
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+        -0.0034 * (normalized) fc_id
+ +       0.0042 * (normalized) fc_tstamp
+ +      -0.1121 * (normalized) fc_duration
+ +       0.4054 * (normalized) fc_proto=UDP
+ +       0.3037 * (normalized) fc_src_addr=127.0.0.1
+ +       0.0007 * (normalized) fc_src_port
+ +      -0.0687 * (normalized) fc_dst_addr=173.252.74.22
+ +      -0.0626 * (normalized) fc_dst_addr=31.13.74.7
+ +      -0.0477 * (normalized) fc_dst_addr=173.252.74.68
+ +      -0.0738 * (normalized) fc_dst_addr=74.125.24.103
+ +      -0.0438 * (normalized) fc_dst_addr=95.131.136.68
+ +      -0.0192 * (normalized) fc_dst_addr=54.230.29.187
+ +      -0.0414 * (normalized) fc_dst_addr=216.58.208.46
+ +      -0.0653 * (normalized) fc_dst_addr=216.58.210.2
+ +      -0.0746 * (normalized) fc_dst_addr=74.125.206.156
+ +      -0.0747 * (normalized) fc_dst_addr=54.76.58.225
+ +       0.3037 * (normalized) fc_dst_addr=127.0.1.1
+ +       0.6075 * (normalized) fc_dst_addr=136.206.11.45
+ +      -0.0467 * (normalized) fc_dst_addr=178.250.0.67
+ +      -0.0739 * (normalized) fc_dst_addr=37.252.163.168
+ +      -0.0724 * (normalized) fc_dst_addr=172.217.16.162
+ +      -0.0739 * (normalized) fc_dst_addr=54.228.191.164
+ +      -0.0692 * (normalized) fc_dst_addr=184.73.198.9
+ +      -0.0733 * (normalized) fc_dst_addr=54.246.112.35
+ +      -0.0657 * (normalized) fc_dst_addr=46.228.164.11
+ +      -0.073  * (normalized) fc_dst_addr=104.155.70.73
+ +      -0.0708 * (normalized) fc_dst_addr=216.58.208.38
+ +      -0.0638 * (normalized) fc_dst_addr=52.19.114.52
+ +      -0.0621 * (normalized) fc_dst_addr=54.175.101.67
+ +       0.2028 * (normalized) fc_dst_addr=136.206.1.3
+ +       0.2025 * (normalized) fc_dst_addr=136.206.217.50
+ +      -1.3165 * (normalized) fc_dst_port
+ +       0.3906
+
+Number of kernel evaluations: 11266 (73.919% cached)
+
+Classifier for classes: HTTP, DNS
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+         0.0063 * (normalized) fc_id
+ +      -0.0052 * (normalized) fc_tstamp
+ +      -0.1386 * (normalized) fc_duration
+ +       1.2807 * (normalized) fc_proto=UDP
+ +       0.9598 * (normalized) fc_src_addr=127.0.0.1
+ +      -0.0014 * (normalized) fc_src_port
+ +      -0.0617 * (normalized) fc_dst_addr=95.131.136.68
+ +      -0.061  * (normalized) fc_dst_addr=80.82.201.80
+ +      -0.0608 * (normalized) fc_dst_addr=95.172.94.25
+ +      -0.0628 * (normalized) fc_dst_addr=80.82.201.94
+ +      -0.0601 * (normalized) fc_dst_addr=74.217.253.90
+ +      -0.0611 * (normalized) fc_dst_addr=95.131.143.205
+ +      -0.0612 * (normalized) fc_dst_addr=195.54.48.9
+ +      -0.063  * (normalized) fc_dst_addr=62.161.94.220
+ +      -0.0625 * (normalized) fc_dst_addr=195.54.48.228
+ +      -0.0629 * (normalized) fc_dst_addr=95.172.94.23
+ +      -0.0624 * (normalized) fc_dst_addr=92.243.23.167
+ +      -0.0275 * (normalized) fc_dst_addr=104.69.123.166
+ +      -0.0512 * (normalized) fc_dst_addr=217.79.180.36
+ +      -0.0349 * (normalized) fc_dst_addr=108.161.189.160
+ +      -0.0554 * (normalized) fc_dst_addr=23.38.219.170
+ +      -0.0254 * (normalized) fc_dst_addr=193.1.253.145
+ +      -0.0252 * (normalized) fc_dst_addr=178.250.2.74
+ +      -0.0651 * (normalized) fc_dst_addr=193.1.253.139
+ +      -0.0225 * (normalized) fc_dst_addr=54.192.30.248
+ +      -0.0625 * (normalized) fc_dst_addr=37.252.163.241
+ +      -0.0223 * (normalized) fc_dst_addr=50.17.240.19
+ +      -0.018  * (normalized) fc_dst_addr=95.142.164.50
+ +      -0.0633 * (normalized) fc_dst_addr=93.184.221.200
+ +      -0.0271 * (normalized) fc_dst_addr=178.250.2.80
+ +      -0      * (normalized) fc_dst_addr=185.86.137.17
+ +      -0.0633 * (normalized) fc_dst_addr=193.1.253.137
+ +      -0.0615 * (normalized) fc_dst_addr=96.6.2.194
+ +      -0.0251 * (normalized) fc_dst_addr=178.250.0.70
+ +      -0.0632 * (normalized) fc_dst_addr=107.178.244.242
+ +      -0.065  * (normalized) fc_dst_addr=23.43.75.27
+ +      -0.0623 * (normalized) fc_dst_addr=185.44.142.4
+ +      -0.0623 * (normalized) fc_dst_addr=5.135.99.245
+ +      -0.0632 * (normalized) fc_dst_addr=216.58.208.46
+ +      -0.0611 * (normalized) fc_dst_addr=54.152.141.6
+ +      -0.0635 * (normalized) fc_dst_addr=185.86.138.16
+ +      -0.0609 * (normalized) fc_dst_addr=188.165.32.32
+ +      -0.0619 * (normalized) fc_dst_addr=178.250.2.71
+ +      -0.0616 * (normalized) fc_dst_addr=184.73.162.65
+ +      -0.0627 * (normalized) fc_dst_addr=37.252.166.209
+ +      -0.0627 * (normalized) fc_dst_addr=216.58.210.2
+ +      -0.0209 * (normalized) fc_dst_addr=64.233.184.95
+ +      -0.02   * (normalized) fc_dst_addr=81.26.166.70
+ +      -0.0645 * (normalized) fc_dst_addr=81.26.166.11
+ +       0      * (normalized) fc_dst_addr=93.184.221.133
+ +      -0.0357 * (normalized) fc_dst_addr=188.165.32.247
+ +      -0.0637 * (normalized) fc_dst_addr=178.250.2.66
+ +      -0.0645 * (normalized) fc_dst_addr=193.1.253.144
+ +      -0.0643 * (normalized) fc_dst_addr=54.76.58.225
+ +      -0.0641 * (normalized) fc_dst_addr=54.77.38.194
+ +      -0.0641 * (normalized) fc_dst_addr=74.125.206.157
+ +       0.9598 * (normalized) fc_dst_addr=127.0.1.1
+ +       1      * (normalized) fc_dst_addr=136.206.11.45
+ +      -0.0274 * (normalized) fc_dst_addr=23.200.96.185
+ +      -0.064  * (normalized) fc_dst_addr=130.211.5.178
+ +      -0.0621 * (normalized) fc_dst_addr=91.216.195.218
+ +      -0.0606 * (normalized) fc_dst_addr=52.49.233.203
+ +      -0.0651 * (normalized) fc_dst_addr=176.31.16.193
+ +      -0.0656 * (normalized) fc_dst_addr=193.1.253.136
+ +      -0.0422 * (normalized) fc_dst_addr=37.252.162.229
+ +      -0.0605 * (normalized) fc_dst_addr=178.255.83.1
+ +      -0.0646 * (normalized) fc_dst_addr=23.2.25.146
+ +      -0.059  * (normalized) fc_dst_addr=72.167.239.239
+ +      -0.0359 * (normalized) fc_dst_addr=46.105.198.136
+ +      -0.027  * (normalized) fc_dst_addr=80.70.210.158
+ +      -0.0642 * (normalized) fc_dst_addr=107.178.245.205
+ +       0.641  * (normalized) fc_dst_addr=136.206.1.3
+ +       0.6397 * (normalized) fc_dst_addr=136.206.217.50
+ +      -0.2243 * (normalized) fc_dst_port
+ -       0.9192
+
+Number of kernel evaluations: 39062 (85.133% cached)
+
+
+
+Time taken to build model: 0.1 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         624               99.6805 %
+Incorrectly Classified Instances         2                0.3195 %
+Kappa statistic                          0.9933
+Mean absolute error                      0.2229
+Root mean squared error                  0.2735
+Relative absolute error                 70.3604 %
+Root relative squared error             68.7788 %
+Total Number of Instances              626     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 1,000    0,000    1,000      1,000    1,000      1,000    1,000     1,000     HTTPS
+                 1,000    0,005    0,989      1,000    0,995      0,992    0,998     0,989     HTTP
+                 0,995    0,000    1,000      0,995    0,998      0,993    0,998     0,999     DNS
+Weighted Avg.    0,997    0,001    0,997      0,997    0,997      0,993    0,998     0,996     
+
+=== Confusion Matrix ===
+
+   a   b   c   <-- classified as
+  28   0   0 |   a = HTTPS
+   0 184   0 |   b = HTTP
+   0   2 412 |   c = DNS
+

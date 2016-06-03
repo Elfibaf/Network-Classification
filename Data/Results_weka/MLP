@@ -1,0 +1,266 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.MultilayerPerceptron -L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H 2
+Relation:     Capture_02_06_2016.pcap-weka.filters.unsupervised.attribute.Remove-R9-weka.filters.unsupervised.attribute.StringToNominal-Rfirst-last
+Instances:    626
+Attributes:   9
+              fc_id
+              fc_tstamp
+              fc_duration
+              fc_proto
+              fc_src_addr
+              fc_src_port
+              fc_dst_addr
+              fc_dst_port
+              class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Sigmoid Node 0
+    Inputs    Weights
+    Threshold    -4.744459725871598
+    Node 3    8.716342469757999
+    Node 4    -9.525489300003821
+Sigmoid Node 1
+    Inputs    Weights
+    Threshold    5.1961683228144375
+    Node 3    -9.461967508098505
+    Node 4    -3.716487185116442
+Sigmoid Node 2
+    Inputs    Weights
+    Threshold    -6.118588645442454
+    Node 3    1.9003271012694016
+    Node 4    9.845313179294902
+Sigmoid Node 3
+    Inputs    Weights
+    Threshold    0.06591489844749288
+    Attrib fc_id    0.2782480774278317
+    Attrib fc_tstamp    -0.10212911178674255
+    Attrib fc_duration    -0.39350130166973907
+    Attrib fc_proto=UDP    2.630879170865039
+    Attrib fc_src_addr=127.0.0.1    1.3262053339941915
+    Attrib fc_src_port    0.2509570063077411
+    Attrib fc_dst_addr=173.252.74.22    0.459376044622323
+    Attrib fc_dst_addr=31.13.74.7    0.14464292473377924
+    Attrib fc_dst_addr=173.252.74.68    0.24133004775281244
+    Attrib fc_dst_addr=74.125.24.103    0.153823055726965
+    Attrib fc_dst_addr=95.131.136.68    0.04391019724470104
+    Attrib fc_dst_addr=80.82.201.80    -0.3934712255472176
+    Attrib fc_dst_addr=95.172.94.25    -0.10133491349570345
+    Attrib fc_dst_addr=80.82.201.94    -0.21715205976748458
+    Attrib fc_dst_addr=74.217.253.90    -0.1376858183233119
+    Attrib fc_dst_addr=95.131.143.205    -0.16457803907114482
+    Attrib fc_dst_addr=195.54.48.9    -0.28489082843996266
+    Attrib fc_dst_addr=62.161.94.220    -0.16305656590987255
+    Attrib fc_dst_addr=195.54.48.228    -0.5897668574315459
+    Attrib fc_dst_addr=95.172.94.23    -0.1503803075202656
+    Attrib fc_dst_addr=92.243.23.167    -0.10088311312135227
+    Attrib fc_dst_addr=104.69.123.166    -0.22094948227610683
+    Attrib fc_dst_addr=217.79.180.36    -0.09449751737875513
+    Attrib fc_dst_addr=108.161.189.160    -0.07092215650488619
+    Attrib fc_dst_addr=23.38.219.170    -0.38103383262110374
+    Attrib fc_dst_addr=193.1.253.145    -0.10598467642151951
+    Attrib fc_dst_addr=178.250.2.74    -0.09932213474125673
+    Attrib fc_dst_addr=193.1.253.139    -0.46691224773429774
+    Attrib fc_dst_addr=54.192.30.248    -0.13971565755182927
+    Attrib fc_dst_addr=37.252.163.241    -0.3969651101403014
+    Attrib fc_dst_addr=50.17.240.19    -0.1680995107609354
+    Attrib fc_dst_addr=95.142.164.50    -0.5734433731079261
+    Attrib fc_dst_addr=93.184.221.200    -0.23518180638140926
+    Attrib fc_dst_addr=178.250.2.80    -0.1460054155232274
+    Attrib fc_dst_addr=185.86.137.17    -0.2566166244931196
+    Attrib fc_dst_addr=193.1.253.137    -0.11279946447861748
+    Attrib fc_dst_addr=96.6.2.194    -0.36668299041626884
+    Attrib fc_dst_addr=54.230.29.187    0.1932084301159506
+    Attrib fc_dst_addr=178.250.0.70    -0.12223314352730454
+    Attrib fc_dst_addr=107.178.244.242    -0.44841331931326467
+    Attrib fc_dst_addr=23.43.75.27    -0.20361040697357716
+    Attrib fc_dst_addr=185.44.142.4    -0.10443699290172925
+    Attrib fc_dst_addr=5.135.99.245    -0.46817324707759844
+    Attrib fc_dst_addr=216.58.208.46    0.20656836449920446
+    Attrib fc_dst_addr=54.152.141.6    -0.1290829416803986
+    Attrib fc_dst_addr=185.86.138.16    -0.3522767833703238
+    Attrib fc_dst_addr=188.165.32.32    -0.10840473121830381
+    Attrib fc_dst_addr=178.250.2.71    -0.1019024111808028
+    Attrib fc_dst_addr=184.73.162.65    -0.13758495254304653
+    Attrib fc_dst_addr=37.252.166.209    -0.08806708312234511
+    Attrib fc_dst_addr=216.58.210.2    -0.00776931186098633
+    Attrib fc_dst_addr=64.233.184.95    -0.10419016247043549
+    Attrib fc_dst_addr=81.26.166.70    -0.04860859559115664
+    Attrib fc_dst_addr=81.26.166.11    -0.30716375491407677
+    Attrib fc_dst_addr=93.184.221.133    -0.166570941964456
+    Attrib fc_dst_addr=54.192.29.162    -0.09326345091207526
+    Attrib fc_dst_addr=107.178.244.41    -0.08020087308744912
+    Attrib fc_dst_addr=188.165.32.247    -0.13740504973766499
+    Attrib fc_dst_addr=178.250.2.66    -0.14222357585966888
+    Attrib fc_dst_addr=193.1.253.144    -0.13629962413958355
+    Attrib fc_dst_addr=74.125.206.156    0.1357072110493531
+    Attrib fc_dst_addr=54.76.58.225    0.11240367634453409
+    Attrib fc_dst_addr=54.77.38.194    -0.16916735065205954
+    Attrib fc_dst_addr=74.125.206.157    -0.2896094922855609
+    Attrib fc_dst_addr=127.0.1.1    1.332824208242828
+    Attrib fc_dst_addr=136.206.11.45    2.545939758677777
+    Attrib fc_dst_addr=23.200.96.185    -0.06066135291391598
+    Attrib fc_dst_addr=178.250.0.67    0.43697119481751134
+    Attrib fc_dst_addr=130.211.5.178    -0.11574544681080112
+    Attrib fc_dst_addr=91.216.195.218    -0.15453112908498612
+    Attrib fc_dst_addr=52.49.233.203    -0.1323438898607162
+    Attrib fc_dst_addr=37.252.163.168    0.06892919485186652
+    Attrib fc_dst_addr=172.217.16.162    0.19137286210470766
+    Attrib fc_dst_addr=176.31.16.193    -0.3186692335247751
+    Attrib fc_dst_addr=54.228.191.164    0.09336767806799985
+    Attrib fc_dst_addr=193.1.253.136    -0.3460216450066059
+    Attrib fc_dst_addr=37.252.162.229    -0.1715852986888112
+    Attrib fc_dst_addr=184.73.198.9    0.11956265664460525
+    Attrib fc_dst_addr=178.255.83.1    -0.11717058362719611
+    Attrib fc_dst_addr=23.2.25.146    -0.20259086480790447
+    Attrib fc_dst_addr=54.246.112.35    0.33001554990668314
+    Attrib fc_dst_addr=72.167.239.239    -0.06321944825469593
+    Attrib fc_dst_addr=46.105.198.136    -0.08546338543437768
+    Attrib fc_dst_addr=46.228.164.11    0.1756669939483461
+    Attrib fc_dst_addr=80.70.210.158    -0.12459204308524889
+    Attrib fc_dst_addr=104.155.70.73    0.27658959087793067
+    Attrib fc_dst_addr=216.58.208.38    0.15858469228810534
+    Attrib fc_dst_addr=52.19.114.52    0.1613620737052602
+    Attrib fc_dst_addr=107.178.245.205    -0.36406733683450043
+    Attrib fc_dst_addr=54.175.101.67    0.1555620217073334
+    Attrib fc_dst_addr=136.206.1.3    0.5383416805446927
+    Attrib fc_dst_addr=136.206.217.50    0.47259298626371254
+    Attrib fc_dst_port    4.978682383316874
+Sigmoid Node 4
+    Inputs    Weights
+    Threshold    -0.02215200334170682
+    Attrib fc_id    0.22133479636906908
+    Attrib fc_tstamp    0.036704081092448285
+    Attrib fc_duration    -0.6755110717262247
+    Attrib fc_proto=UDP    3.3247487377380938
+    Attrib fc_src_addr=127.0.0.1    1.583377883563037
+    Attrib fc_src_port    0.08467909426316514
+    Attrib fc_dst_addr=173.252.74.22    -0.04946015736589766
+    Attrib fc_dst_addr=31.13.74.7    -0.02723152416536197
+    Attrib fc_dst_addr=173.252.74.68    -0.038912711483919046
+    Attrib fc_dst_addr=74.125.24.103    0.01212275384905791
+    Attrib fc_dst_addr=95.131.136.68    -0.06035194982803112
+    Attrib fc_dst_addr=80.82.201.80    -0.1622107862758991
+    Attrib fc_dst_addr=95.172.94.25    -0.056747670813687395
+    Attrib fc_dst_addr=80.82.201.94    -0.02657564948063947
+    Attrib fc_dst_addr=74.217.253.90    -0.0018144992386661116
+    Attrib fc_dst_addr=95.131.143.205    -0.01936485893564286
+    Attrib fc_dst_addr=195.54.48.9    -0.09987717664741344
+    Attrib fc_dst_addr=62.161.94.220    -0.09029213673872256
+    Attrib fc_dst_addr=195.54.48.228    -0.24812726457569556
+    Attrib fc_dst_addr=95.172.94.23    -0.053747384742342176
+    Attrib fc_dst_addr=92.243.23.167    -0.02437150273745467
+    Attrib fc_dst_addr=104.69.123.166    -0.038574636003669636
+    Attrib fc_dst_addr=217.79.180.36    -0.04610730773534358
+    Attrib fc_dst_addr=108.161.189.160    -0.057841035959141585
+    Attrib fc_dst_addr=23.38.219.170    -0.1497584687037763
+    Attrib fc_dst_addr=193.1.253.145    -0.022723958131880946
+    Attrib fc_dst_addr=178.250.2.74    0.0038920639279658603
+    Attrib fc_dst_addr=193.1.253.139    -0.2287579592359207
+    Attrib fc_dst_addr=54.192.30.248    -0.020371300763095603
+    Attrib fc_dst_addr=37.252.163.241    -0.3174363970422017
+    Attrib fc_dst_addr=50.17.240.19    -0.04860566967668185
+    Attrib fc_dst_addr=95.142.164.50    -0.7066791115642771
+    Attrib fc_dst_addr=93.184.221.200    -0.03154881568681018
+    Attrib fc_dst_addr=178.250.2.80    -0.02176983876819916
+    Attrib fc_dst_addr=185.86.137.17    -0.013660343656106829
+    Attrib fc_dst_addr=193.1.253.137    0.014172925615502265
+    Attrib fc_dst_addr=96.6.2.194    -0.10527787828020456
+    Attrib fc_dst_addr=54.230.29.187    -0.03138579000192555
+    Attrib fc_dst_addr=178.250.0.70    -0.037643088382442305
+    Attrib fc_dst_addr=107.178.244.242    -0.4287054068252481
+    Attrib fc_dst_addr=23.43.75.27    -0.06727696990347207
+    Attrib fc_dst_addr=185.44.142.4    -0.011304788978120128
+    Attrib fc_dst_addr=5.135.99.245    -0.15352926339859918
+    Attrib fc_dst_addr=216.58.208.46    -0.043542689351135144
+    Attrib fc_dst_addr=54.152.141.6    -0.0545572749091742
+    Attrib fc_dst_addr=185.86.138.16    -0.11879022280372822
+    Attrib fc_dst_addr=188.165.32.32    -0.07933520633285257
+    Attrib fc_dst_addr=178.250.2.71    -9.325163628928185E-4
+    Attrib fc_dst_addr=184.73.162.65    0.00519075127312701
+    Attrib fc_dst_addr=37.252.166.209    -0.01171495094169937
+    Attrib fc_dst_addr=216.58.210.2    -0.050220439826562525
+    Attrib fc_dst_addr=64.233.184.95    0.024902409389149095
+    Attrib fc_dst_addr=81.26.166.70    -0.023884107635772384
+    Attrib fc_dst_addr=81.26.166.11    -0.08202790243253148
+    Attrib fc_dst_addr=93.184.221.133    -0.011591587059601853
+    Attrib fc_dst_addr=54.192.29.162    -0.05285729833901752
+    Attrib fc_dst_addr=107.178.244.41    -0.0014767957428403944
+    Attrib fc_dst_addr=188.165.32.247    -0.06407494900534534
+    Attrib fc_dst_addr=178.250.2.66    -0.011059261803408521
+    Attrib fc_dst_addr=193.1.253.144    -0.058321851730206244
+    Attrib fc_dst_addr=74.125.206.156    -0.044935407911964036
+    Attrib fc_dst_addr=54.76.58.225    -0.10234210374897386
+    Attrib fc_dst_addr=54.77.38.194    -0.044096146464896194
+    Attrib fc_dst_addr=74.125.206.157    -0.1611638010290378
+    Attrib fc_dst_addr=127.0.1.1    1.6024918176464569
+    Attrib fc_dst_addr=136.206.11.45    2.923082605420127
+    Attrib fc_dst_addr=23.200.96.185    -0.030281424878326194
+    Attrib fc_dst_addr=178.250.0.67    -0.044940917061888644
+    Attrib fc_dst_addr=130.211.5.178    -0.041271179573711216
+    Attrib fc_dst_addr=91.216.195.218    -0.022035616276756056
+    Attrib fc_dst_addr=52.49.233.203    -0.01809389440945069
+    Attrib fc_dst_addr=37.252.163.168    -0.09194589373448647
+    Attrib fc_dst_addr=172.217.16.162    -0.06592299784634849
+    Attrib fc_dst_addr=176.31.16.193    -0.10460674527633182
+    Attrib fc_dst_addr=54.228.191.164    -0.005427326902083264
+    Attrib fc_dst_addr=193.1.253.136    -0.14532831358923556
+    Attrib fc_dst_addr=37.252.162.229    -0.06613935933084177
+    Attrib fc_dst_addr=184.73.198.9    -0.10187163679469839
+    Attrib fc_dst_addr=178.255.83.1    -0.012462023002752775
+    Attrib fc_dst_addr=23.2.25.146    -0.03456789457308212
+    Attrib fc_dst_addr=54.246.112.35    -0.08072247972643189
+    Attrib fc_dst_addr=72.167.239.239    -0.015760475159305197
+    Attrib fc_dst_addr=46.105.198.136    0.010207048636210693
+    Attrib fc_dst_addr=46.228.164.11    -0.016513997696453758
+    Attrib fc_dst_addr=80.70.210.158    -0.034716139613035386
+    Attrib fc_dst_addr=104.155.70.73    -0.23097370505995526
+    Attrib fc_dst_addr=216.58.208.38    0.020669324436540976
+    Attrib fc_dst_addr=52.19.114.52    -0.10467237385434615
+    Attrib fc_dst_addr=107.178.245.205    -0.21173269398673406
+    Attrib fc_dst_addr=54.175.101.67    -0.06102435898382605
+    Attrib fc_dst_addr=136.206.1.3    0.6272129665304808
+    Attrib fc_dst_addr=136.206.217.50    0.5584194806734327
+    Attrib fc_dst_port    -1.326578504182596
+Class HTTPS
+    Input
+    Node 0
+Class HTTP
+    Input
+    Node 1
+Class DNS
+    Input
+    Node 2
+
+
+Time taken to build model: 1.17 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         624               99.6805 %
+Incorrectly Classified Instances         2                0.3195 %
+Kappa statistic                          0.9933
+Mean absolute error                      0.0062
+Root mean squared error                  0.0249
+Relative absolute error                  1.9543 %
+Root relative squared error              6.2536 %
+Total Number of Instances              626     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 1,000    0,000    1,000      1,000    1,000      1,000    1,000     1,000     HTTPS
+                 1,000    0,005    0,989      1,000    0,995      0,992    1,000     1,000     HTTP
+                 0,995    0,000    1,000      0,995    0,998      0,993    1,000     1,000     DNS
+Weighted Avg.    0,997    0,001    0,997      0,997    0,997      0,993    1,000     1,000     
+
+=== Confusion Matrix ===
+
+   a   b   c   <-- classified as
+  28   0   0 |   a = HTTPS
+   0 184   0 |   b = HTTP
+   0   2 412 |   c = DNS
+
