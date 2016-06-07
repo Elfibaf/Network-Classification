@@ -35,7 +35,3 @@ def load_dataset(filename):
 
     return DataSet(nparray,labels)
 
-
-foo = load_dataset('../Data/Capture_Port.arff')
-print(foo.features, foo.labels, foo.nb_examples)
-
