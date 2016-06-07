@@ -35,5 +35,3 @@ def load_dataset(filename):
 
     return DataSet(nparray,labels)
 
-
-
