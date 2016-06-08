@@ -33,5 +33,21 @@ def load_dataset(filename):
     nparray = np.array(barray)
     labels = np.array(labels)
 
+
+    #Conversion of string attributes to float
+    nparray = nparray.T
+    for i in range(len(nparray[3])):
+        if nparray[3][i] == 'TCP':
+            nparray[3][i] = 0
+        elif nparray[3][i] == 'UDP':
+            nparray[3][i] = 1
+
+    for i in range(len(nparray[4])):
+        nparray[4][i] = ''.join(nparray[4][i].split('.'))
+        nparray[6][i] = ''.join(nparray[6][i].split('.'))
+
+    nparray = nparray.T
     return DataSet(nparray,labels)
+
+
 
