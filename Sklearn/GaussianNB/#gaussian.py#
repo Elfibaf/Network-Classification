@@ -12,7 +12,7 @@ from extraction import *
 from sklearn.naive_bayes import GaussianNB
 from sklearn.cross_validation import train_test_split
 from sklearn.metrics import confusion_matrix
-from sklearn import preprocessing
+
 
 # Step 1 : Import Arff file
 
@@ -31,9 +31,12 @@ feature_train,feature_test,label_train,label_test = train_test_split(arff_file.f
 feature_train_float = feature_train.astype(np.float)
 feature_test_float = feature_test.astype(np.float)
 
+feature_train_rescaled = scale(feature_train_float)
+feature_test_rescaled=scale(feature_test_float)
+
 t0=time.time()
 clf = GaussianNB()
-label_pred = clf.fit(feature_train_float,label_train).predict(feature_test_float)
+label_pred = clf.fit(feature_train_rescaled,label_train).predict(feature_test_rescaled)
 print "Training and predicting time ",round(time.time()-t0,3),"s"
 print "Number of Classes :",len (clf.classes_)
 
@@ -44,6 +47,6 @@ print confusion_matrix
 
 # Step 5 : Accuracy 
 
-score = clf.score(feature_test_float,label_test)
+score = clf.score(feature_test_rescaled,label_test)
 print "Test Accuracy :",score 
 
