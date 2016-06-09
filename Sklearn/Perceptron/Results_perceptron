@@ -1,0 +1,93 @@
+With 50 epochs :
+
+    Number of features : 364464
+    Number of labels : 364464
+    Training time  234.898 s
+    Number of Classes : 157
+    Test Accuracy : 0.127134641556
+
+    Normalized features :
+     
+    Number of features : 364464
+    Number of labels : 364464
+    Training time  221.8 s
+    Number of Classes : 157
+    Test Accuracy : 0.382644102024
+
+
+With 15 epochs and normalized features : 
+
+    Number of features : 364464
+    Number of labels : 364464
+    Training time  64.565 s
+    Number of Classes : 157
+    Test Accuracy : 0.283901839413
+    
+    
+With 30 epochs and normalized features : 
+
+    Number of features : 364464
+    Number of labels : 364464
+    Training time  129.515 s
+    Number of Classes : 157
+    Test Accuracy : 0.413165635015
+    
+    
+With 35 epochs and normalized features :
+  
+    Number of features : 364464
+    Number of labels : 364464
+    Training time  140.818 s
+    Number of Classes : 157
+    Test Accuracy : 0.301571622986
+    
+    
+With 60 epochs and normalized features :
+    Number of features : 364464
+    Number of labels : 364464
+    Training time  281.437 s
+    Number of Classes : 157
+    Test Accuracy : 0.378122393433
+    
+    
+With 70 epochs and normalized features :
+
+    Number of features : 364464
+    Number of labels : 364464
+    Training time  292.905 s
+    Number of Classes : 157
+    Test Accuracy : 0.25514728478
+    
+    
+With 80 epochs and normalized features :
+
+    Number of features : 364464
+    Number of labels : 364464
+    Training time  346.444 s
+    Number of Classes : 157
+    Test Accuracy : 0.270391588744
+    
+With 100 epochs and normalized features :
+
+    Number of features : 364464
+    Number of labels : 364464
+    Training time  438.222 s
+    Number of Classes : 157
+    Test Accuracy : 0.395221475921
+    
+With 150 epochs and normalized features :
+
+    Number of features : 364464
+    Number of labels : 364464
+    Training time  664.187 s
+    Number of Classes : 157
+    Test Accuracy : 0.44451029457
+    
+    
+With 200 epochs and normalized features :
+
+    Number of features : 364464
+    Number of labels : 364464
+    Training time  842.498 s
+    Number of Classes : 157
+    Test Accuracy : 0.434029149655
