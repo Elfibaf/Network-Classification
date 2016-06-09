@@ -1,22 +1,21 @@
 # Authors : Mehdi Crozes and Fabien Robin
-# Date : June 7th 2016
+# Date : June 9th 2016
 
-# GaussianNB for ARFF traffic network file 
+# MLP for ARFF traffic network file 
 
 import arff
 import numpy as np
-import matplotlib.pyplot as py
 import time
 
 from extraction import *
-from sklearn.naive_bayes import GaussianNB
+from sklearn.neural_network import MLPClassifier 
 from sklearn.cross_validation import train_test_split
 from sklearn.metrics import confusion_matrix
-
+from sklearn.preprocessing import MinMaxScaler
 
 # Step 1 : Import Arff file
 
-arff_file = load_dataset("../../Data/data_caida_original.arff")
+arff_file = load_dataset("../../../Data/data_caida_original.arff")
 print "Total dataset : "
 print "Number of features :",len(arff_file.features)
 print "Number of labels :",len(arff_file.labels)
@@ -31,22 +30,30 @@ feature_train,feature_test,label_train,label_test = train_test_split(arff_file.f
 feature_train_float = feature_train.astype(np.float)
 feature_test_float = feature_test.astype(np.float)
 
-feature_train_rescaled = scale(feature_train_float)
-feature_test_rescaled=scale(feature_test_float)
+scaler = MinMaxScaler(copy='false')
+feature_train_rescaled =scaler.fit_transform(feature_train_float)
+feature_test_rescaled=scaler.fit_transform(feature_test_float) 
 
-t0=time.time()
-clf = GaussianNB()
-label_pred = clf.fit(feature_train_rescaled,label_train).predict(feature_test_rescaled)
-print "Training and predicting time ",round(time.time()-t0,3),"s"
+t0 = time.time()
+clf = MLPClassifier(hidden_layer_sizes=(3,300), max_iter=30, alpha=1e-5,
+                    activation='tanh',algorithm='sgd', verbose='true', tol=1e-4, random_state=1,
+                    learning_rate_init=.1)
+clf.fit(feature_train_rescaled,label_train)
+print "Training  time ",round(time.time()-t0,3),"s"
+
+t1= time.time()
+clf.predict(feature_test_rescaled)
+print "Predicting time ",round(time.time()-t1,3),"s"
 print "Number of Classes :",len (clf.classes_)
 
 # Step 4 : Generate Confusion Matrix
 
-confusion_matrix = confusion_matrix(label_test,label_pred)
-print confusion_matrix
+#confusion_matrix = confusion_matrix(label_test,label_pred)
+#print confusion_matrix
 
 # Step 5 : Accuracy 
 
 score = clf.score(feature_test_rescaled,label_test)
 print "Test Accuracy :",score 
 
+# 40% pour 10 iterations

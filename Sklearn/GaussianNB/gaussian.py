@@ -5,10 +5,9 @@
 
 import arff
 import numpy as np
-import matplotlib.pyplot as py
 import time
 
-from extraction import *
+from extraction import * 
 from sklearn.naive_bayes import GaussianNB
 from sklearn.cross_validation import train_test_split
 from sklearn.metrics import confusion_matrix
@@ -47,3 +46,4 @@ print confusion_matrix
 score = clf.score(feature_test_float,label_test)
 print "Test Accuracy :",score 
 
+# Avec 20 iterations seulement un score de 15% sur l'ensemble test contre 46% en temps normal

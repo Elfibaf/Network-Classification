@@ -1,22 +1,21 @@
 # Authors : Mehdi Crozes and Fabien Robin
-# Date : June 8th 2016
+# Date : June 9th 2016
 
-# Perceptron via SGDClassifier for ARFF traffic network file 
+# MLP for ARFF traffic network file 
 
 import arff
 import numpy as np
-import matplotlib.pyplot as py
 import time
 
 from extraction import *
-from sklearn.linear_model import Perceptron
+from sklearn.neural_network import MLPClassifier 
 from sklearn.cross_validation import train_test_split
 from sklearn.metrics import confusion_matrix
 from sklearn.preprocessing import MinMaxScaler
 
 # Step 1 : Import Arff file
 
-arff_file = load_dataset("../../Data/data_caida_original.arff")
+arff_file = load_dataset("../../../Data/data_caida_original.arff")
 print "Total dataset : "
 print "Number of features :",len(arff_file.features)
 print "Number of labels :",len(arff_file.labels)
@@ -35,14 +34,17 @@ scaler = MinMaxScaler(copy='false')
 feature_train_rescaled =scaler.fit_transform(feature_train_float)
 feature_test_rescaled=scaler.fit_transform(feature_test_float) 
 
-print feature_train_rescaled,feature_test_rescaled
-#t0=time.time()
-#clf = Perceptron(n_iter=1000)
-#clf.fit(feature_train_float,label_train)
-#print "Training time ",round(time.time()-t0,3),"s"
-#print "Number of Classes :",len (clf.classes_)
+t0 = time.time()
+clf = MLPClassifier(hidden_layer_sizes=(2,300), max_iter=30, alpha=1e-5,
+                    activation='tanh',algorithm='sgd', verbose='true', tol=1e-4, random_state=1,
+                    learning_rate_init=.1)
+clf.fit(feature_train_rescaled,label_train)
+print "Training  time ",round(time.time()-t0,3),"s"
 
-#label_pred = clf.fit(feature_train_float,label_train).predict(feature_test_float)
+t1= time.time()
+clf.predict(feature_test_rescaled)
+print "Predicting time ",round(time.time()-t1,3),"s"
+print "Number of Classes :",len (clf.classes_)
 
 # Step 4 : Generate Confusion Matrix
 
@@ -51,7 +53,7 @@ print feature_train_rescaled,feature_test_rescaled
 
 # Step 5 : Accuracy 
 
-#score = clf.score(feature_test_float,label_test)
-#print "Test Accuracy :",score 
+score = clf.score(feature_test_rescaled,label_test)
+print "Test Accuracy :",score 
 
-
+# 40% pour 10 iterations
