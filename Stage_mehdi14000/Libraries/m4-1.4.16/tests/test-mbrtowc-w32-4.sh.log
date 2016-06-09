@@ -1,4 +1,0 @@
-SKIP: test-mbrtowc-w32-4.sh (exit: 77)
-======================================
-
-Skipping test: not a native Windows system

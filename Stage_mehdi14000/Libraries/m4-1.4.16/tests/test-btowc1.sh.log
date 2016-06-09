@@ -1,4 +1,0 @@
-SKIP: test-btowc1.sh (exit: 77)
-===============================
-
-Skipping test: no traditional french locale is installed

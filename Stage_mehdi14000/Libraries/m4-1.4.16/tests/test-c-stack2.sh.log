@@ -1,4 +1,0 @@
-SKIP: test-c-stack2.sh (exit: 77)
-=================================
-
-cannot tell stack overflow from crash; consider installing libsigsegv
