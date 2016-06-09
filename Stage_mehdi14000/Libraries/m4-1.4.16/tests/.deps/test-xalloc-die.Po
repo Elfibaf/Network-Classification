@@ -1,0 +1,13 @@
+test-xalloc-die.o: test-xalloc-die.c /usr/include/stdc-predef.h \
+ ../lib/config.h ../lib/xalloc.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h ../lib/progname.h
+
+/usr/include/stdc-predef.h:
+
+../lib/config.h:
+
+../lib/xalloc.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h:
+
+../lib/progname.h:

@@ -1,0 +1,88 @@
+=========================================
+   GNU M4 1.4.16: tests/test-suite.log   
+=========================================
+
+All 114 tests passed.  (16 tests were not run).  
+
+.. contents:: :depth: 2
+
+
+SKIP: test-btowc1.sh (exit: 77)
+===============================
+
+Skipping test: no traditional french locale is installed
+
+SKIP: test-c-stack2.sh (exit: 77)
+=================================
+
+cannot tell stack overflow from crash; consider installing libsigsegv
+
+SKIP: test-mbrtowc1.sh (exit: 77)
+=================================
+
+Skipping test: no traditional french locale is installed
+
+SKIP: test-mbrtowc3.sh (exit: 77)
+=================================
+
+Skipping test: no traditional japanese locale is installed
+
+SKIP: test-mbrtowc4.sh (exit: 77)
+=================================
+
+Skipping test: no transitional chinese locale is installed
+
+SKIP: test-mbrtowc-w32-1.sh (exit: 77)
+======================================
+
+Skipping test: not a native Windows system
+
+SKIP: test-mbrtowc-w32-2.sh (exit: 77)
+======================================
+
+Skipping test: not a native Windows system
+
+SKIP: test-mbrtowc-w32-3.sh (exit: 77)
+======================================
+
+Skipping test: not a native Windows system
+
+SKIP: test-mbrtowc-w32-4.sh (exit: 77)
+======================================
+
+Skipping test: not a native Windows system
+
+SKIP: test-mbrtowc-w32-5.sh (exit: 77)
+======================================
+
+Skipping test: not a native Windows system
+
+SKIP: test-vc-list-files-cvs.sh (exit: 77)
+==========================================
+
+test-vc-list-files-cvs.sh: skipped test: cvs not found in PATH
+
+SKIP: test-wcrtomb-w32-1.sh (exit: 77)
+======================================
+
+Skipping test: not a native Windows system
+
+SKIP: test-wcrtomb-w32-2.sh (exit: 77)
+======================================
+
+Skipping test: not a native Windows system
+
+SKIP: test-wcrtomb-w32-3.sh (exit: 77)
+======================================
+
+Skipping test: not a native Windows system
+
+SKIP: test-wcrtomb-w32-4.sh (exit: 77)
+======================================
+
+Skipping test: not a native Windows system
+
+SKIP: test-wcrtomb-w32-5.sh (exit: 77)
+======================================
+
+Skipping test: not a native Windows system

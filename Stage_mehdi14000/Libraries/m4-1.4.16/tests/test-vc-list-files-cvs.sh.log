@@ -1,0 +1,4 @@
+SKIP: test-vc-list-files-cvs.sh (exit: 77)
+==========================================
+
+test-vc-list-files-cvs.sh: skipped test: cvs not found in PATH

@@ -1,0 +1,4 @@
+SKIP: test-mbrtowc3.sh (exit: 77)
+=================================
+
+Skipping test: no traditional japanese locale is installed

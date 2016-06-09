@@ -1,0 +1,4 @@
+SKIP: test-mbrtowc4.sh (exit: 77)
+=================================
+
+Skipping test: no transitional chinese locale is installed

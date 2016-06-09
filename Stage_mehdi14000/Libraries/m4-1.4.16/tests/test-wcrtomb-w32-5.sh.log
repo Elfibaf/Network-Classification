@@ -1,0 +1,4 @@
+SKIP: test-wcrtomb-w32-5.sh (exit: 77)
+======================================
+
+Skipping test: not a native Windows system
