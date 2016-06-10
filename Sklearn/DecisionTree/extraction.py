@@ -1,5 +1,6 @@
 import re
 import numpy as np
+import matplotlib.pyplot as plt
 import os
 import arff
 
@@ -48,6 +49,5 @@ def load_dataset(filename):
 
     nparray = nparray.T
     return DataSet(nparray,labels)
-
 
 

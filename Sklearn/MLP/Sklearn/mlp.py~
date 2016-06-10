@@ -30,13 +30,15 @@ feature_train,feature_test,label_train,label_test = train_test_split(arff_file.f
 feature_train_float = feature_train.astype(np.float)
 feature_test_float = feature_test.astype(np.float)
 
+# Standardization of feature_train and feature_test : theirs values will be now between 0. and 1.
+
 scaler = MinMaxScaler(copy='false')
 feature_train_rescaled =scaler.fit_transform(feature_train_float)
 feature_test_rescaled=scaler.fit_transform(feature_test_float) 
 
 t0 = time.time()
-clf = MLPClassifier(hidden_layer_sizes=(2,300), max_iter=30, alpha=1e-5,
-                    activation='tanh',algorithm='sgd', verbose='true', tol=1e-4, random_state=1,
+clf = MLPClassifier(hidden_layer_sizes=(3,500), max_iter=23, alpha=1e-5,
+                    activation='relu',algorithm='sgd', verbose='true', tol=1e-4, random_state=1,
                     learning_rate_init=.1)
 clf.fit(feature_train_rescaled,label_train)
 print "Training  time ",round(time.time()-t0,3),"s"
@@ -54,6 +56,8 @@ print "Number of Classes :",len (clf.classes_)
 # Step 5 : Accuracy 
 
 score = clf.score(feature_test_rescaled,label_test)
+score2 = clf.score(feature_train_rescaled,label_train)
 print "Test Accuracy :",score 
+print "Training Accuracy :",score2
 
-# 40% pour 10 iterations
+
