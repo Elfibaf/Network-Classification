@@ -23,6 +23,7 @@ feature_train,feature_test,label_train,label_test = train_test_split(data.featur
 #model = GridSearchCV(KNeighborsClassifier(), param_grid)
 model = KNeighborsClassifier()
 model.fit(feature_train, label_train)
+print(len(model.classes_))
 
 #print("Best params : ", model.best_params_)
 

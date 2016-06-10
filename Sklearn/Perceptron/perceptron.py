@@ -37,7 +37,7 @@ feature_test_rescaled=scaler.fit_transform(feature_test_float)
 
 print feature_train_rescaled,feature_test_rescaled
 #t0=time.time()
-#clf = Perceptron(n_iter=1000)
+#clf = Perceptron(n_iter=50)
 #clf.fit(feature_train_float,label_train)
 #print "Training time ",round(time.time()-t0,3),"s"
 #print "Number of Classes :",len (clf.classes_)
