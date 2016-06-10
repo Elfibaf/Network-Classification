@@ -9,9 +9,9 @@ import matplotlib.pyplot as py
 import time
 
 from extraction import *
-from sklearn.tree import DecisionTreeClassifier
+from sklearn import tree
 from sklearn.cross_validation import train_test_split
-from sklearn.grid_search import GridSearchCV
+from sklearn.metrics import confusion_matrix
 
 # Step 1 : Import Arff file
 
@@ -21,17 +21,34 @@ arff_file = load_dataset("../../Data/data_caida_original.arff")
 
 feature_train,feature_test,label_train,label_test = train_test_split(arff_file.features,arff_file.labels,test_size=0.25,random_state=42)
 
-# Step 3 : Modeling and training our classifier + print training's time 
+# Step 3 : Modeling and training our classifier with training's time
 
-t0=time.time()
-clf = DecisionTreeClassifier()
-clf.fit(feature_train,label_train)
-print "Temps effectue ",round(time.time()-t0,3),"s"
+feature_train_float = feature_train.astype(np.float)
+feature_test_float = feature_test.astype(np.float)
 
-#print clf.classes_ Print classes' list
+t0 = time.time()
+clf = tree.DecisionTreeClassifier()
+clf.fit(feature_train_float,label_train)
 
-# Step 4 : Accuracy 
+import pydot
+out="tree.dot"
+tree.export_graphviz(clf,out_file=out)
+pydot.graph_from_dot_data(out.getvalue()).write_png("dtree2.png")
 
-score = clf.score(feature_test,label_test)
+print "Training time: ",round(time.time()-t0,3),"s"
+print "Number of Classes :",len (clf.classes_)
+
+t1 = time.time()
+label_pred = clf.predict(feature_test_float)
+print "Predicting time: ",round(time.time()-t1,3),"s"
+
+# Step 4 : Generate Confusion Matrix
+
+confusion_matrix = confusion_matrix(label_test,label_pred)
+print confusion_matrix
+
+# Step 5 : Accuracy 
+
+score = clf.score(feature_test_float,label_test)
 print "Accuracy :",score 
 
