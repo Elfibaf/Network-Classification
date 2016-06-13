@@ -11,7 +11,8 @@ import time
 from extraction import *
 from sklearn.linear_model import LogisticRegression
 from sklearn.cross_validation import train_test_split
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix,precision_score,recall_score
+from sklearn.grid_search import GridSearchCV
 
 # Step 1 : Import Arff file
 
@@ -26,26 +27,32 @@ feature_train,feature_test,label_train,label_test = train_test_split(arff_file.f
 feature_train_float = feature_train.astype(np.float)
 feature_test_float = feature_test.astype(np.float)
 
+#Parameters for LogisticRegression : solver to minimize loss function and multi_class='multinomial' for multi_class problem to use the sofmax function so as to find the predicted probability of each class
+
+tuned_parameters=[{'C':[1,10,100,1000],'max_iter':[5,10,15,20,30],'multi_class':('ovr','multinomial')}]
+
+scores ='precision'
+
+clf = GridSearchCV(LogisticRegression(penalty='l2',C=1,max_iter=5,solver='lbfgs',multi_class='ovr'),tuned_parameters,cv=10,scoring=scores)
 t0 = time.time()
-clf = LogisticRegression(penalty='l2',solver='newton-cg',max_iter=50,multi_class='multinomial')
 clf.fit(feature_train_float,label_train)
 
-print "Training time: ",round(time.time()-t0,3),"s"
-print "Number of Classes :",len (clf.classes_)
+print "\tTraining time: ",round(time.time()-t0,3),"s"
+print "\tNumber of Classes :",len (clf.classes_)
 
 t1 = time.time()
-clf.predict(feature_test_float)
-print "Predicting time: ",round(time.time()-t1,3),"s"
+label_pred = clf.predict(feature_test_float)
+print "\tPredicting time: ",round(time.time()-t1,3),"s"
 
-# Step 4 : Generate Confusion Matrix
+# Step 4 : Generate precision_score and recall_score
 
-#confusion_matrix = confusion_matrix(label_test,label_pred)
-#print confusion_matrix
+#print "\tPrecision :",precision_score(label_test,label_pred,average='micro')
+#print "\tRecall :",recall_score(label_test,label_pred,average='micro')
 
-# Step 5 : Accuracy 
+# S1tep 5 : Accuracy 
 
 score = clf.score(feature_test_float,label_test)
-score2 =clf.score(feature_train_float,label_train)
-print "Test Accuracy :",score 
-print "Training Accuracy :",score2
+score2 = clf.score(feature_train_float,label_train)
+print "\tTest Accuracy :",score 
+print "\tTraining Accuracy :",score2
 

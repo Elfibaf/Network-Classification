@@ -25,6 +25,7 @@ model = GridSearchCV(svm.SVC(C=1), param_grid)
 X = feature_train
 Y = label_train
 
+
 model.fit(X, Y)
 
 print("Best parameters : ", model.best_params_)
