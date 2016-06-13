@@ -1,17 +1,19 @@
 # Authors : Mehdi Crozes and Fabien Robin
-# Date : June 7th 2016
+# Date : June 10th 2016
 
-# DecisionTreeClassifier for ARFF traffic network file 
+# LogisticClassifier for ARFF traffic network file 
 
 import arff
 import numpy as np
 import matplotlib.pyplot as py
 import time
+import scipy.sparse as sp 
 
 from extraction import *
-from sklearn import tree
+from sklearn.linear_model import LogisticRegression
 from sklearn.cross_validation import train_test_split
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix,precision_score,recall_score
+from sklearn.grid_search import GridSearchCV
 
 # Step 1 : Import Arff file
 
@@ -26,29 +28,32 @@ feature_train,feature_test,label_train,label_test = train_test_split(arff_file.f
 feature_train_float = feature_train.astype(np.float)
 feature_test_float = feature_test.astype(np.float)
 
+#Parameters for LogisticRegression : solver to minimize loss function and multi_class='multinomial' for multi_class problem to use the sofmax function so as to find the predicted probability of each class
+
+tuned_parameters=[{'C':[1,10,100,1000],'max_iter':[5,10,15,20,30],'multi_class':('ovr','multinomial')}]
+
+scores ='precision'
+
+clf = GridSearchCV(LogisticRegression(penalty='l2',C=1,max_iter=5,solver='lbfgs',multi_class='ovr'),tuned_parameters,cv=10,scoring=scores)
 t0 = time.time()
-clf = tree.DecisionTreeClassifier()
 clf.fit(feature_train_float,label_train)
 
-import StringIO,pydot
-out=StringIO.StringIO()
-tree.export_graphviz(clf,out_file=out)
-pydot.graph_from_dot_data(out.getvalue()).write_pdf("dtree2.pdf")
-
-print "Training time: ",round(time.time()-t0,3),"s"
-print "Number of Classes :",len (clf.classes_)
+print "\tTraining time: ",round(time.time()-t0,3),"s"
+print "\tNumber of Classes :",len (clf.classes_)
 
 t1 = time.time()
 label_pred = clf.predict(feature_test_float)
-print "Predicting time: ",round(time.time()-t1,3),"s"
+print "\tPredicting time: ",round(time.time()-t1,3),"s"
 
-# Step 4 : Generate Confusion Matrix
+# Step 4 : Generate precision_score and recall_score
 
-confusion_matrix = confusion_matrix(label_test,label_pred)
-print confusion_matrix
+#print "\tPrecision :",precision_score(label_test,label_pred,average='micro')
+#print "\tRecall :",recall_score(label_test,label_pred,average='micro')
 
-# Step 5 : Accuracy 
+# S1tep 5 : Accuracy 
 
 score = clf.score(feature_test_float,label_test)
-print "Accuracy :",score 
+score2 = clf.score(feature_train_float,label_train)
+print "\tTest Accuracy :",score 
+print "\tTraining Accuracy :",score2
 

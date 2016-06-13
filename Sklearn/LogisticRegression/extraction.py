@@ -2,7 +2,6 @@ import re
 import numpy as np
 import os
 import arff
-import matplotlib.pyplot as plt
 
 class DataSet(object):
     def __init__(self, features, labels):
@@ -31,6 +30,7 @@ def load_dataset(filename):
     labels = []
     for row in barray:
         labels.append(row.pop())
+        #row.pop()
     nparray = np.array(barray)
     labels = np.array(labels)
 
@@ -48,8 +48,10 @@ def load_dataset(filename):
         nparray[6][i] = ''.join(nparray[6][i].split('.'))
 
     nparray = nparray.T
+    
+
     return DataSet(nparray,labels)
 
 
-
-
+#foo = load_dataset('../Data/Capture_Port.arff')
+#print(foo.features, foo.labels, foo.nb_examples)
