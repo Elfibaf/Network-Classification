@@ -46,8 +46,8 @@ print "\tPredicting time: ",round(time.time()-t1,3),"s"
 
 # Step 4 : Generate precision_score and recall_score
 
-#print "\tPrecision :",precision_score(label_test,label_pred,average='micro')
-#print "\tRecall :",recall_score(label_test,label_pred,average='micro')
+print "\tPrecision :",precision_score(label_test,label_pred,average='micro')
+print "\tRecall :",recall_score(label_test,label_pred,average='micro')
 
 # S1tep 5 : Accuracy 
 

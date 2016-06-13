@@ -1,8 +1,3 @@
-# Authors : Fabien Robin and Mehdi Crozes
-# Date : June 8th 2016
-
-# K Nearest Neighbours classifier for ARFF traffic network file 
-
 import re
 import numpy as np
 import os

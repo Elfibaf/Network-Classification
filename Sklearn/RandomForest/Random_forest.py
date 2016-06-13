@@ -1,9 +1,15 @@
+# Authors : Fabien Robin and Mehdi Crozes
+# Date : June 8th 2016
+
+# Random Forest classifier for ARFF traffic network file 
+
 import re
 import numpy as np
 import os
 import arff
-from sklearn.ensemble import RandomForestClassifier
 import extraction
+
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.cross_validation import train_test_split
 from sklearn.grid_search import GridSearchCV
 

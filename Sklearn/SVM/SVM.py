@@ -1,9 +1,15 @@
+# Authors : Fabien Robin and Mehdi Crozes
+# Date : June 9th 2016
+
+# SVM classifier for ARFF traffic network file 
+
 import re
 import numpy as np
 import os
 import arff
-from sklearn import svm
 import extraction
+
+from sklearn import svm
 from sklearn.cross_validation import train_test_split
 from sklearn.preprocessing import normalize
 from sklearn.grid_search import GridSearchCV

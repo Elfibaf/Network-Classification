@@ -1,9 +1,15 @@
+# Authors : Fabien Robin and Mehdi Crozes
+# Date : June 8th 2016
+
+# SVM classifier for ARFF traffic network file 
+
 import re
 import numpy as np
 import os
 import arff
-from sklearn import svm
 import extraction
+
+from sklearn import svm
 from sklearn.cross_validation import train_test_split
 from sklearn.preprocessing import normalize
 from sklearn.grid_search import GridSearchCV
@@ -24,7 +30,6 @@ model = GridSearchCV(svm.SVC(C=1), param_grid)
 
 X = feature_train
 Y = label_train
-
 
 model.fit(X, Y)
 

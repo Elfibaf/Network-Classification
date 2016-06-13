@@ -7,7 +7,6 @@ import arff
 import numpy as np
 import matplotlib.pyplot as py
 import time
-import scipy.sparse as sp 
 
 from extraction import *
 from sklearn.linear_model import LogisticRegression
