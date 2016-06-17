@@ -1,5 +1,5 @@
 # Authors : Fabien Robin and Mehdi Crozes
-# Date : June 8th 2016
+# Date : June 9th 2016
 
 # SVM classifier for ARFF traffic network file 
 
@@ -15,6 +15,10 @@ from sklearn.preprocessing import normalize
 from sklearn.grid_search import GridSearchCV
 
 data = extraction.load_dataset('../Data/Capture_Port.arff')
+
+print "\tTotal dataset : "
+print "\tNumber of samples:",arff_file.nb_examples
+print "\tNumber of features:",len(arff_file.features[0])
 
 #data.features = normalize(data.features)
 #print(data.features)

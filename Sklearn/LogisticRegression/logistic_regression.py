@@ -7,16 +7,20 @@ import arff
 import numpy as np
 import matplotlib.pyplot as py
 import time
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 from extraction import *
 from sklearn.linear_model import LogisticRegression
 from sklearn.cross_validation import train_test_split
 from sklearn.metrics import confusion_matrix,precision_score,recall_score
-from sklearn.grid_search import GridSearchCV
 
 # Step 1 : Import Arff file
 
 arff_file = load_dataset("../../Data/data_caida_original.arff")
+print "\tTotal dataset : "
+print "\tNumber of samples:",arff_file.nb_examples
+print "\tNumber of features:",len(arff_file.features[0])
 
 # Step 2 : Building training_set and test_set
 
@@ -29,11 +33,8 @@ feature_test_float = feature_test.astype(np.float)
 
 #Parameters for LogisticRegression : solver to minimize loss function and multi_class='multinomial' for multi_class problem to use the sofmax function so as to find the predicted probability of each class
 
-tuned_parameters=[{'C':[1,10,100,1000],'max_iter':[5,10,15,20,30],'multi_class':('ovr','multinomial')}]
 
-scores ='precision'
-
-clf = GridSearchCV(LogisticRegression(penalty='l2',C=1,max_iter=5,solver='lbfgs',multi_class='ovr'),tuned_parameters,cv=10,scoring=scores)
+clf = LogisticRegression(penalty='l2',max_iter=5,solver='lbfgs',multi_class='ovr')
 t0 = time.time()
 clf.fit(feature_train_float,label_train)
 

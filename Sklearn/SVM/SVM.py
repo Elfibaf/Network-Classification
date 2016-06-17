@@ -16,6 +16,10 @@ from sklearn.grid_search import GridSearchCV
 
 data = extraction.load_dataset('../Data/Capture_Port.arff')
 
+print "\tTotal dataset : "
+print "\tNumber of samples:",data.nb_examples
+print "\tNumber of features:",len(data.features[0])
+
 #data.features = normalize(data.features)
 #print(data.features)
 

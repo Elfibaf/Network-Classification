@@ -40,7 +40,7 @@ t1 = time.time()
 label_pred = clf.predict(feature_test_float)
 print "\tPredicting time: ",round(time.time()-t1,3),"s"
 
-# Step 4 : Generate Precision and Recall
+# Step 4 : Precision_score and recall_score
 
 print "\tPrecision :",precision_score(label_test,label_pred,average='micro')
 print "\tRecall :",recall_score(label_test,label_pred,average='micro')

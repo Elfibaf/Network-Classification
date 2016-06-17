@@ -1,0 +1,205 @@
+Authors : Mehdi Crozes and Fabien Robin
+Date : June 10th 2016
+
+# 3 couches avec 400 neurones et 3 itérations max
+
+Total dataset : 
+Number of features : 364464
+Number of labels : 364464
+Iteration 1, loss = 1.39499932
+Iteration 2, loss = 1.30425379
+Iteration 3, loss = 1.12456954
+
+Training  time  75.809 s
+Predicting time  3.091 s
+Number of Classes : 152
+Test Accuracy : 0.442370165503
+Training Accuracy : 0.441693372551
+
+# 3 couches avec 300 neurones et 3 itérations max
+
+Total dataset : 
+Number of features : 364464
+Number of labels : 364464
+Iteration 1, loss = 1.39986141
+Iteration 2, loss = 1.22163593
+Iteration 3, loss = 1.05750497
+
+Training  time  58.907 s
+Predicting time  2.493 s
+Number of Classes : 152
+Test Accuracy : 0.688836208789
+Training Accuracy : 0.691547038939
+
+# 3 couches avec 300 neurones et 5 itérations max
+
+Total dataset : 
+Number of features : 364464
+Number of labels : 364464
+Iteration 1, loss = 1.39986141
+Iteration 2, loss = 1.22163593
+Iteration 3, loss = 1.05750497
+Iteration 4, loss = 1.45746169
+Iteration 5, loss = 1.26572458
+
+Training  time  120.91 s
+Predicting time  2.545 s
+Number of Classes : 152
+Test Accuracy : 0.651839413495
+Training Accuracy : 0.649827326339
+
+# 3 couches avec 500 neurones et 5 itérations max
+
+Total dataset : 
+Number of features : 364464
+Number of labels : 364464
+Iteration 1, loss = 1.38466919
+Iteration 2, loss = 1.22548099
+Iteration 3, loss = 1.22847218
+Iteration 4, loss = 0.97203261
+Iteration 5, loss = 1.05986064
+
+Training  time  190.678 s
+Predicting time  3.753 s
+Number of Classes : 152
+Test Accuracy : 0.65975240353
+Training Accuracy : 0.65743667413
+
+# 3 couches avec 500 neurones et 4 itérations max fonction d' activation relu
+
+Total dataset : 
+Number of features : 364464
+Number of labels : 364464
+Iteration 1, loss = 1.38466919
+Iteration 2, loss = 1.22548099
+Iteration 3, loss = 1.22847218
+Iteration 4, loss = 0.97203261
+
+Training  time  246.191 s
+Predicting time  4.574 s
+Number of Classes : 152
+Test Accuracy : 0.801011896923
+Training Accuracy : 0.801838681827
+
+# 3 couches avec 500 neurones et 7 itérations max fonction d' activation relu
+
+Total dataset : 
+Number of features : 364464
+Number of labels : 364464
+Iteration 1, loss = 1.43701749
+Iteration 2, loss = 1.23234399
+Iteration 3, loss = 1.15672108
+Iteration 4, loss = 1.10709007
+Iteration 5, loss = 1.04799219
+Iteration 6, loss = 0.94757916
+Iteration 7, loss = 0.85711783
+
+Training  time  208.418 s
+Predicting time  2.648 s
+Number of Classes : 152
+Test Accuracy : 0.842343825453
+Training Accuracy : 0.839691528747
+
+# 3 couches avec 500 neurones et 20 itérations max fonction d' activation relu, descente de gradient stochastique
+
+Total dataset : 
+Number of features : 364464
+Number of labels : 364464
+Iteration 1, loss = 1.43701749
+Iteration 2, loss = 1.23234399
+Iteration 3, loss = 1.15672108
+Iteration 4, loss = 1.10709007
+Iteration 5, loss = 1.04799219
+Iteration 6, loss = 0.94757916
+Iteration 7, loss = 0.85711783
+Iteration 8, loss = 0.84492786
+Iteration 9, loss = 0.79514513
+Iteration 10, loss = 0.79117020
+Iteration 11, loss = 0.76535724
+Iteration 12, loss = 0.72818314
+Iteration 13, loss = 0.70443494
+Iteration 14, loss = 0.69641863
+Iteration 15, loss = 0.68078520
+Iteration 16, loss = 0.67700079
+Iteration 17, loss = 0.72129058
+Iteration 18, loss = 0.70924514
+Iteration 19, loss = 0.67045489
+Iteration 20, loss = 0.68689939
+
+Training  time  596.219 s
+Predicting time  2.605 s
+Number of Classes : 152
+Test Accuracy : 0.855755300935
+Training Accuracy : 0.855316300101
+
+# Algorithme d'optimisation ADAM censé être plus efficace sur de larges datasets que le sgd.
+# Pour le moment sur 7 itérations, ne pouvant pas aller plus loin dans l'amélioration de la loss function, son accuracy est de 52% franchement pas mieux qu'avant
+# Jusqu'a présent on a conservé l'ensemble des features (fichier data_caida_original.arff)
+
+#Nouveaux tests à venir avec modification du fichier d'origine avec plus ou moins de features
+
+Nouveau fichier mlp_thresold avec application du MinMax + VarianceThresold, les valeurs sont normalisés entre 0 et 1 puis on élimine les features
+dont la variance est inférieur au seuil défini par VarianceThresold.
+
+# 3 couches avec 500 neurones et 10 itérations max fonction d' activation relu, descente de gradient stochastique et seuil à 0.0
+# On conserve 16 labels sur 24
+
+	Total dataset : 
+	Number of samples: 307777
+	Number of features: 24
+16
+Iteration 1, loss = 1.57255932
+Iteration 2, loss = 1.02699035
+Iteration 3, loss = 0.96521905
+Iteration 4, loss = 0.92181118
+Iteration 5, loss = 0.91077252
+Iteration 6, loss = 0.90589552
+Iteration 7, loss = 0.89687263
+Iteration 8, loss = 0.87551192
+Iteration 9, loss = 0.80080778
+Iteration 10, loss = 0.77323398
+
+	Training  time  259.456 s
+	Predicting time  2.308 s
+	Number of Classes : 156
+	Precision : 0.77950484112
+	Recall : 0.77950484112
+	Test Accuracy : 0.77950484112
+	Training Accuracy : 0.778895473764
+
+
+# Même chose qu'auparavant avec 20 itérations maximum. On passe de 78% à 84%
+# Max itérations 24
+
+	Total dataset : 
+	Number of samples: 307777
+	Number of features: 24
+	Nombre de features conserves : 16
+Iteration 1, loss = 1.57255932
+Iteration 2, loss = 1.02699035
+Iteration 3, loss = 0.96521905
+Iteration 4, loss = 0.92181118
+Iteration 5, loss = 0.91077252
+Iteration 6, loss = 0.90589552
+Iteration 7, loss = 0.89687263
+Iteration 8, loss = 0.87551192
+Iteration 9, loss = 0.80080778
+Iteration 10, loss = 0.77323398
+Iteration 11, loss = 0.74079564
+Iteration 12, loss = 0.71399792
+Iteration 13, loss = 0.70666342
+Iteration 14, loss = 0.65786744
+Iteration 15, loss = 0.66911694
+Iteration 16, loss = 0.66207610
+Iteration 17, loss = 0.61295762
+Iteration 18, loss = 0.62673699
+Iteration 19, loss = 0.60644459
+Iteration 20, loss = 0.58134963
+	Training  time  598.187 s
+	Predicting time  2.373 s
+	Number of Classes : 156
+	Precision : 0.843212684385
+	Recall : 0.843212684385
+	Test Accuracy : 0.843212684385
+	Training Accuracy : 0.84302436404
+

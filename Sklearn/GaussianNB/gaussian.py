@@ -17,8 +17,8 @@ from sklearn import preprocessing
 
 arff_file = load_dataset("../../Data/data_caida_original.arff")
 print "Total dataset : "
-print "Number of features :",len(arff_file.features)
-print "Number of labels :",len(arff_file.labels)
+print "\tNumber of samples:",arff_file.nb_examples
+print "\tNumber of features:",len(arff_file.features[0])
 
 # Step 2 : Building training_set and test_set
 

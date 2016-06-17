@@ -134,4 +134,114 @@ Training Accuracy : 0.855316300101
 
 # Algorithme d'optimisation ADAM censé être plus efficace sur de larges datasets que le sgd.
 # Pour le moment sur 7 itérations, ne pouvant pas aller plus loin dans l'amélioration de la loss function, son accuracy est de 52% franchement pas mieux qu'avant
+# Jusqu'a présent on a conservé l'ensemble des features (fichier data_caida_original.arff)
+
+#Nouveaux tests à venir avec modification du fichier d'origine avec plus ou moins de features
+
+Nouveau fichier mlp_thresold avec application du MinMax + VarianceThresold, les valeurs sont normalisés entre 0 et 1 puis on élimine les features
+dont la variance est inférieur au seuil défini par VarianceThresold.
+
+# 3 couches avec 500 neurones et 10 itérations max fonction d' activation relu, descente de gradient stochastique et seuil à 0.0
+# On conserve 16 labels sur 24
+
+	Total dataset : 
+	Number of samples: 307777
+	Number of features: 24
+16
+Iteration 1, loss = 1.57255932
+Iteration 2, loss = 1.02699035
+Iteration 3, loss = 0.96521905
+Iteration 4, loss = 0.92181118
+Iteration 5, loss = 0.91077252
+Iteration 6, loss = 0.90589552
+Iteration 7, loss = 0.89687263
+Iteration 8, loss = 0.87551192
+Iteration 9, loss = 0.80080778
+Iteration 10, loss = 0.77323398
+
+	Training  time  259.456 s
+	Predicting time  2.308 s
+	Number of Classes : 156
+	Precision : 0.77950484112
+	Recall : 0.77950484112
+	Test Accuracy : 0.77950484112
+	Training Accuracy : 0.778895473764
+
+
+# Même chose qu'auparavant avec 20 itérations maximum. On passe de 78% à 84%
+# Max itérations 24
+
+	Total dataset : 
+	Number of samples: 307777
+	Number of features: 24
+	Nombre de features conserves : 16
+Iteration 1, loss = 1.57255932
+Iteration 2, loss = 1.02699035
+Iteration 3, loss = 0.96521905
+Iteration 4, loss = 0.92181118
+Iteration 5, loss = 0.91077252
+Iteration 6, loss = 0.90589552
+Iteration 7, loss = 0.89687263
+Iteration 8, loss = 0.87551192
+Iteration 9, loss = 0.80080778
+Iteration 10, loss = 0.77323398
+Iteration 11, loss = 0.74079564
+Iteration 12, loss = 0.71399792
+Iteration 13, loss = 0.70666342
+Iteration 14, loss = 0.65786744
+Iteration 15, loss = 0.66911694
+Iteration 16, loss = 0.66207610
+Iteration 17, loss = 0.61295762
+Iteration 18, loss = 0.62673699
+Iteration 19, loss = 0.60644459
+Iteration 20, loss = 0.58134963
+	Training  time  598.187 s
+	Predicting time  2.373 s
+	Number of Classes : 156
+	Precision : 0.843212684385
+	Recall : 0.843212684385
+	Test Accuracy : 0.843212684385
+	Training Accuracy : 0.84302436404
+
+# Même chose qu'auparavant avec 20 itérations maximum. IL s'arrête à 18 itérations avec le selectkBest avec k = 5 
+
+	Total dataset : 
+	Number of samples: 307777
+	Number of features: 24
+/usr/local/lib/python2.7/dist-packages/sklearn/feature_selection/univariate_selection.py:113: UserWarning: Features [12 13 14 15 20 21 22 23] are constant.
+  UserWarning)
+/usr/local/lib/python2.7/dist-packages/sklearn/feature_selection/univariate_selection.py:114: RuntimeWarning: invalid value encountered in divide
+  f = msb / msw
+	Nombre de features conserves : 5
+	Liste des scores des labels: [  37.19756788   37.52198947  132.05399614  860.2105547    55.88305783
+  139.95054483   59.13755603  277.97082392  357.42398929  292.26584381
+  215.94267071   25.88005885           nan           nan           nan
+           nan   19.13448375   38.91285358   45.41837603   26.03175206
+           nan           nan           nan           nan]
+Iteration 1, loss = 1.26606767
+Iteration 2, loss = 0.92699181
+Iteration 3, loss = 0.81446164
+Iteration 4, loss = 0.75332178
+Iteration 5, loss = 0.70289343
+Iteration 6, loss = 0.68679493
+Iteration 7, loss = 0.66637015
+Iteration 8, loss = 0.62807650
+Iteration 9, loss = 0.61277782
+Iteration 10, loss = 0.57781870
+Iteration 11, loss = 0.57490768
+Iteration 12, loss = 0.59195402
+Iteration 13, loss = 0.55794327
+Iteration 14, loss = 0.55605919
+Iteration 15, loss = 0.53586726
+Iteration 16, loss = 0.81655118
+Iteration 17, loss = 0.67677124
+Iteration 18, loss = 0.66567978
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+	Training  time  457.374 s
+	Predicting time  2.269 s
+	Number of Classes : 156
+	Precision : 0.627136266164
+	Recall : 0.627136266164
+	Test Accuracy : 0.627136266164
+	Training Accuracy : 0.625584840923
 
