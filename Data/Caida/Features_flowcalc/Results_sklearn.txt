@@ -1,0 +1,52 @@
+With flowcalc stats only :
+
+    Decision Tree :
+
+        Number of features : 307777
+	    Number of labels : 307777
+	    Training time:  0.983 s
+	    Number of Classes : 160
+	    Predicting time:  0.051 s
+	    Precision : 0.641796088115
+	    Recall : 0.641796088115
+	    Test Accuracy : 0.641796088115
+	    Teain Accuracy: 0.666003846954
+	    
+
+    Gaussian NB :
+    
+        Number of features : 307777
+        Number of labels : 307777
+	    Training time  0.633 s
+	    Number of Classes : 160
+	    Predicting time:  1.709 s
+	    Precision : 0.117031645981
+	    Recall : 0.117031645981
+	    Test Accuracy : 0.117031645981
+	    Teain Accuracy: 0.116890205864
+	    
+	    
+    KNN :
+    
+        accuracy : 0.62
+        time : 5-10mn
+      
+        
+    Random Forest :
+        
+        accuract : 0.64825524725453243
+    
+    Perceptron :
+    
+        Training time  117.627 s
+	    Predicting time  0.218 s
+	    Number of Classes : 160
+	    Precision : 0.229228669829
+	    Recall : 0.229228669829
+	    Test Accuracy : 0.186197933589
+	    Training Accuracy : 0.0798112913288
+    
+    
+    
+        
+    
