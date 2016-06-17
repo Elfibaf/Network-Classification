@@ -1,0 +1,129 @@
+With no dest port :
+
+    Decision tree :
+    
+        Number of features : 364464
+	    Number of labels : 364464
+	    Training time:  3.698 s
+	    Number of Classes : 157
+	    Predicting time:  0.101 s
+	    Precision : 0.925523508495
+	    Recall : 0.925523508495
+	    Test Accuracy : 0.925523508495
+	    Teain Accuracy: 1.0
+	    
+	    
+	    
+No source port, no dest port :
+
+
+    Descision tree :
+        
+        Number of features : 364464
+	    Number of labels : 364464
+	    Training time:  3.157 s
+	    Number of Classes : 157
+	    Predicting time:  0.102 s
+	    Precision : 0.911980332763
+	    Recall : 0.911980332763
+	    Test Accuracy : 0.911980332763
+	    Teain Accuracy: 1.0
+	    
+	    
+No ports, no protocol :
+
+    Decision tree :
+        
+        Number of features : 364464
+	    Number of labels : 364464
+	    Training time:  3.244 s
+	    Number of Classes : 157
+	    Predicting time:  0.135 s
+	    Precision : 0.889525440098
+	    Recall : 0.889525440098
+	    Test Accuracy : 0.889525440098
+	    Teain Accuracy: 1.0
+	    
+	    
+No ports no protocol, no ip adresses :
+
+    Decision tree :
+    
+        Number of features : 364464
+	    Number of labels : 364464
+	    Training time:  5.957 s
+	    Number of Classes : 157
+	    Predicting time:  0.149 s
+	    Precision : 0.368069274332
+	    Recall : 0.368069274332
+	    Test Accuracy : 0.368069274332
+	    Teain Accuracy: 1.0
+	    
+	    
+No IP adresses :
+    
+    Decision tree : 
+    
+        Number of features : 364464
+	    Number of labels : 364464
+	    Training time:  1.54 s
+	    Number of Classes : 157
+	    Predicting time:  0.102 s
+	    Precision : 0.995599016638
+	    Recall : 0.995599016638
+	    Test Accuracy : 0.995599016638
+	    Teain Accuracy: 1.0
+	    
+	    
+No IP adresses, no protocol :
+
+    Decision tree :
+    
+        Number of features : 364464
+	    Number of labels : 364464
+	    Training time:  1.539 s
+	    Number of Classes : 157
+	    Predicting time:  0.102 s
+	    Precision : 0.993941788489
+	    Recall : 0.993941788489
+	    Test Accuracy : 0.993941788489
+	    Teain Accuracy: 1.0
+	    
+	    
+No IP, no ports :
+
+    Decision tree :
+    
+        Number of features : 364464
+	    Number of labels : 364464
+	    Training time:  4.396 s
+	    Number of Classes : 157
+	    Predicting time:  0.202 s
+	    Precision : 0.429770841565
+	    Recall : 0.429770841565
+	    Test Accuracy : 0.429770841565
+	    Teain Accuracy: 1.0
+	    
+	    
+No timestamp :
+
+    Decision tree :
+    
+        Number of features : 364464
+	    Number of labels : 364464
+	    Training time:  2.609 s
+	    Number of Classes : 157
+	    Predicting time:  0.102 s
+	    Precision : 0.99343693753
+	    Recall : 0.99343693753
+	    Test Accuracy : 0.99343693753
+	    Teain Accuracy: 1.0
+	    
+	    
+No timestamp, no IP :
+
+    Descision tree :
+    
+        
+    
+        
