@@ -15,7 +15,6 @@ from sklearn.grid_search import GridSearchCV
 
 
 data = extraction.load_dataset('../../Data/Caida/data_caida_original.arff')
-#data = extraction.load_dataset('../../Data/Capture_Port.arff')
 print "\tTotal dataset : "
 print "\tNumber of samples:",data.nb_examples
 print "\tNumber of features:",len(data.features[0])
@@ -32,8 +31,6 @@ feature_train,feature_test,label_train,label_test = train_test_split(data.featur
 model = KNeighborsClassifier()
 model.fit(feature_train, label_train)
 print(len(model.classes_))
-
-#print("Best params : ", model.best_params_)
 
 predicted = model.predict(feature_test)
 
