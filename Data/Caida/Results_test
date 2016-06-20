@@ -252,5 +252,330 @@ No duration, no ports, no timestamp, no protocol, no IP :
 	    Precision : 0.177477062206
 	    Recall : 0.177477062206
 	    Test Accuracy : 0.177477062206
+	    
+	    
+With fwd inter arrival time only :  
+
+    Decision Tree :
+    
+        Number of samples: 307766
+	    Number of features: 4
+	    Training time:  0.55 s
+	    Number of Classes : 160
+	    Predicting time:  0.036 s
+	    Precision : 0.355462556211
+	    Recall : 0.355462556211
+	    Test Accuracy : 0.355462556211
+	    Teain Accuracy: 0.409636779538
+	    
+	    
+With fwd inter arrival time + payload size :
+
+    Decision tree :
+    
+        Number of samples: 307766
+	    Number of features: 8
+	    Training time:  0.943 s
+	    Number of Classes : 160
+	    Predicting time:  0.051 s
+	    Precision : 0.642496945751
+	    Recall : 0.642496945751
+	    Test Accuracy : 0.642496945751
+	    Teain Accuracy: 0.665398745364
+	    
+With fwd payload size :
+
+    Decision tree :
+    
+        Number of samples: 307766
+	    Number of features: 4
+	    Training time:  0.367 s
+	    Number of Classes : 160
+	    Predicting time:  0.045 s
+	    Precision : 0.640846351797
+	    Recall : 0.640846351797
+	    Test Accuracy : 0.640846351797
+	    Teain Accuracy: 0.651938273316
+	    
+	    
+With best features f_classif :
+
+    Decision tree :
+        
+        Number of samples: 307766
+	    Number of features: 4
+	    Training time:  0.468 s
+	    Number of Classes : 160
+	    Predicting time:  0.048 s
+	    Precision : 0.642224012893
+	    Recall : 0.642224012893
+	    Test Accuracy : 0.642224012893
+	    Teain Accuracy: 0.665156136277
+	    
+	    
+With fwd min payload size :
+
+    Decision tree :
+    
+        Number of samples: 307766
+	    Number of features: 1
+	    Training time:  0.253 s
+	    Number of Classes : 160
+	    Predicting time:  0.041 s
+	    Precision : 0.619141691144
+	    Recall : 0.619141691144
+	    Test Accuracy : 0.619141691144
+	    Teain Accuracy: 0.619051745053    
+	    
+	    
+With fwd avg payload size :
+
+    Decision tree :
+    
+        Number of samples: 307766
+	    Number of features: 1
+	    Training time:  0.253 s
+	    Number of Classes : 160
+	    Predicting time:  0.042 s
+	    Precision : 0.59911361805
+	    Recall : 0.59911361805
+	    Test Accuracy : 0.59911361805
+	    Teain Accuracy: 0.599703670329
+	    
+With fwd max payload size :
+
+    Decision tree :
+    
+        Number of samples: 307766
+	    Number of features: 1
+	    Training time:  0.256 s
+	    Number of Classes : 160
+	    Predicting time:  0.045 s
+	    Precision : 0.615021704661
+	    Recall : 0.615021704661
+	    Test Accuracy : 0.615021704661
+	    Teain Accuracy: 0.614866738294
+	    
+With fwd min+max payload size :
+
+    Decision tree :
+    
+        Number of samples: 307766
+	    Number of features: 2
+	    Training time:  0.263 s
+	    Number of Classes : 160
+	    Predicting time:  0.044 s
+	    Precision : 0.64095032622
+	    Recall : 0.64095032622
+	    Test Accuracy : 0.64095032622
+	    Teain Accuracy: 0.647458669809
+	    
+With fwd min+max payload size + flow id :
+
+    Decision tree :
+    
+        Number of samples: 307766
+	    Number of features: 3
+	    Training time:  2.103 s
+	    Number of Classes : 160
+	    Predicting time:  0.101 s
+	    Precision : 0.591575472434
+	    Recall : 0.591575472434
+	    Test Accuracy : 0.591575472434
+	    Teain Accuracy: 1.0
+	    
+With min max avg payload size + size of 1st packet :
+
+    Decision tree :
+    
+        Number of samples: 364452
+	    Number of features: 4
+	    Training time:  0.438 s
+	    Number of Classes : 155
+	    Predicting time:  0.101 s
+	    Precision : 0.671078770318
+	    Recall : 0.671078770318
+	    Test Accuracy : 0.671078770318
+	    Teain Accuracy: 0.682098054065
+	    
+	    
+With 5 first packets' size :
+
+    Decision tree :
+    
+        Number of samples: 364452
+	    Number of features: 5
+	    Training time:  0.439 s
+	    Number of Classes : 155
+	    Predicting time:  0.102 s
+	    Precision : 0.673076289882
+	    Recall : 0.673076289882
+	    Test Accuracy : 0.673076289882
+	    Teain Accuracy: 0.688375972693
+	    
+With 5 first packets' size + number of bytes in fwd :
+
+    Decision tree :
+    
+        Number of samples: 364452
+	    Number of features: 6
+	    Training time:  0.535 s
+	    Number of Classes : 155
+	    Predicting time:  0.102 s
+	    Precision : 0.671956800896
+	    Recall : 0.671956800896
+	    Test Accuracy : 0.671956800896
+	    Teain Accuracy: 0.689557655512
+	    
+	    
+	    
+With 5 first packets' size + number of bytes + nb of packets :
+
+    Decision tree :
+    
+        Number of samples: 364452
+	    Number of features: 7
+	    Training time:  0.634 s
+	    Number of Classes : 155
+	    Predicting time:  0.102 s
+	    Precision : 0.712873025803
+	    Recall : 0.712873025803
+	    Test Accuracy : 0.712873025803
+	    Teain Accuracy: 0.733404307472
+	    
+	    
+With 5 first packets size + nb of packets :
+
+    Decision tree :
+    
+        Number of samples: 364452
+	    Number of features: 6
+	    Training time:  0.483 s
+	    Number of Classes : 155
+	    Predicting time:  0.102 s
+	    Precision : 0.713048631919
+	    Recall : 0.713048631919
+	    Test Accuracy : 0.713048631919
+	    Teain Accuracy: 0.733166507524
+	    
+	    
+With first packet size + nb of packets :
+
+    Decision tree :
+    
+        Number of samples: 364452
+	    Number of features: 2
+	    Training time:  0.342 s
+	    Number of Classes : 155
+	    Predicting time:  0.102 s
+	    Precision : 0.704421981496
+	    Recall : 0.704421981496
+	    Test Accuracy : 0.704421981496
+	    Teain Accuracy: 0.716977818753
+	    
+	    
+With 5 first packets size + nb of packets + payload size :
+
+    Decision tree :
+    
+        Number of samples: 364452
+	    Number of features: 10
+	    Training time:  0.936 s
+	    Number of Classes : 155
+	    Predicting time:  0.102 s
+	    Precision : 0.714607136194
+	    Recall : 0.714607136194
+	    Test Accuracy : 0.714607136194
+	    Teain Accuracy: 0.733327479796
+	    
+	    
+With payload size + nb of packets :
+
+    Decision tree :
+    
+        Number of samples: 364452
+	    Number of features: 5
+	    Training time:  0.632 s
+	    Number of Classes : 155
+	    Predicting time:  0.101 s
+	    Precision : 0.711643782995
+	    Recall : 0.711643782995
+	    Test Accuracy : 0.711643782995
+	    Teain Accuracy: 0.731128744892
+	    
+With payload size + nb of packets + size of 1st packet :
+
+    Decision tree :
+    
+        Number of samples: 364452
+	    Number of features: 6
+	    Training time:  0.738 s
+	    Number of Classes : 155
+	    Predicting time:  0.102 s
+	    Precision : 0.712916927332
+	    Recall : 0.712916927332
+	    Test Accuracy : 0.712916927332
+	    Teain Accuracy: 0.731293375625
+	    
+	    
+With min+max payload size + nb of packets :
+
+    Decision tree :
+    
+        Number of samples: 364452
+	    Number of features: 3
+	    Training time:  0.442 s
+	    Number of Classes : 155
+	    Predicting time:  0.11 s
+	    Precision : 0.712368158221
+	    Recall : 0.712368158221
+	    Test Accuracy : 0.712368158221
+	    Teain Accuracy: 0.729259271454
+	    
+	    
+With min+max payload size + nb of packets + size of 1st packet :
+
+    Decision tree :
+    
+        Number of samples: 364452
+	    Number of features: 4
+	    Training time:  0.527 s
+	    Number of Classes : 155
+	    Predicting time:  0.101 s
+	    Precision : 0.713542524118
+	    Recall : 0.713542524118
+	    Test Accuracy : 0.713542524118
+	    Teain Accuracy: 0.730155594335
+	    
+	    
+With min+max payload size + nb of packets + size of 1st packet + nb bytes :
+
+    Decision tree :
+    
+        Number of samples: 364452
+	    Number of features: 5
+	    Training time:  0.639 s
+	    Number of Classes : 155
+	    Predicting time:  0.101 s
+	    Precision : 0.714354702403
+	    Recall : 0.714354702403
+	    Test Accuracy : 0.714354702403
+	    Teain Accuracy: 0.733268944424
+	    
+	    
+With min+max payload size + nb of packets + size of 1st packet + nb bytes + duration :
+
+    Decision tree :
+    
+        Number of samples: 364452
+	    Number of features: 12
+	    Training time:  2.41 s
+	    Number of Classes : 155
+	    Predicting time:  0.125 s
+	    Precision : 0.723354515821
+	    Recall : 0.723354515821
+	    Test Accuracy : 0.723354515821
+	    Teain Accuracy: 0.886979172383
+    
     
         
