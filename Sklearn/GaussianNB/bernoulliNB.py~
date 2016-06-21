@@ -15,7 +15,7 @@ from sklearn.metrics import confusion_matrix,recall_score,precision_score
 from sklearn.feature_selection import VarianceThreshold,SelectKBest,f_classif
 from sklearn.preprocessing import MinMaxScaler
 
-# Step 1 : Import Arff file
+# Step 1 : Import Arff file : right here it's just 6 features
 
 arff_file = load_dataset("../../Data/Caida/features_caida_flowcalc2.arff")
 print "Total dataset : "
@@ -36,7 +36,7 @@ scaler = MinMaxScaler(copy='false')
 feature_train_rescaled = scaler.fit_transform(feature_train_float)
 feature_test_rescaled = scaler.fit_transform(feature_test_float) 
 
-clf = BernoulliNB(binarize=0.5)
+clf = BernoulliNB(binarize=0.01)
 t0 = time.time()
 clf.fit(feature_train_rescaled,label_train)
 print "\tTraining time ",round(time.time()-t0,3),"s"

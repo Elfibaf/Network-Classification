@@ -7,14 +7,14 @@ import re
 import numpy as np
 import os
 import arff
-import extraction
+import extraction2
 
 from sklearn import svm
 from sklearn.cross_validation import train_test_split
 from sklearn.preprocessing import normalize
 from sklearn.grid_search import GridSearchCV
 
-data = extraction.load_dataset('../Data/Capture_Port.arff')
+data = extraction2.load_dataset("../../Data/Caida/features_caida_flowcalc2.arff")
 
 print "\tTotal dataset : "
 print "\tNumber of samples:",data.nb_examples

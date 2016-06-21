@@ -14,7 +14,7 @@ from sklearn.metrics import confusion_matrix,recall_score,precision_score
 from sklearn.feature_selection import VarianceThreshold
 from sklearn.preprocessing import MinMaxScaler
 
-# Step 1 : Import Arff file
+# Step 1 : Import Arff file right here it's just 6 features
 
 arff_file = load_dataset("../../Data/Caida/features_caida_flowcalc2.arff")
 print "Total dataset : "
@@ -34,12 +34,6 @@ feature_test_float = feature_test.astype(np.float)
 scaler = MinMaxScaler(copy='false')
 feature_train_rescaled = scaler.fit_transform(feature_train_float)
 feature_test_rescaled = scaler.fit_transform(feature_test_float) 
-
-#selector = VarianceThreshold(threshold=0.2)
-#feature_train_selected = selector.fit_transform(feature_train_rescaled,label_train)
-#feature_test_selected = selector.fit_transform(feature_test_rescaled,label_test)
-#print "\tNombre de features conserves :",len(feature_train_selected[1])
-#print "\tListe des scores des labels:",selector.variances_
 
 clf = GaussianNB()
 t0 = time.time()
@@ -61,5 +55,5 @@ print "\tRecall :",recall_score(label_test,label_pred,average='micro')
 score = clf.score(feature_test_rescaled,label_test)
 score2 = clf.score(feature_train_rescaled,label_train)
 print "\tTest Accuracy :",score 
-print "\tTeain Accuracy:",score2
+print "\tTrain Accuracy:",score2
 
