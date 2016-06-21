@@ -1,6 +1,6 @@
 import numpy as np
 import arff
-
+import matplotlib.pyplot as plt
 
 def stats(filename):
 
@@ -25,18 +25,34 @@ def stats(filename):
             total += value
         print(total)
 
-        for key, value in dict_labels.items():
-            dict_labels[key] = (value/total)*100
+        pct_labels = {}
         
-        for l in sorted(dict_labels, key=dict_labels.get, reverse = True):
-            print(l, " : %.4f" % dict_labels[l], "%")
+        for key, value in dict_labels.items():
+            pct_labels[key] = (float(value)/total)*100
+            if pct_labels[key] < 1:
+                dict_labels.pop(key, None)
+        
+        for l in sorted(pct_labels, key=pct_labels.get, reverse = True):
+            print(l, " : %.4f" % pct_labels[l], "%")
 
         return dict_labels
 
     
 
-    
+def pie_chart(filename):
+
+        labels = stats(filename)
+
+        plt.pie([v for k,v in labels.items()],
+                labels = [k for k,v in labels.items()],
+                autopct = '%1.1f%%',
+                shadow = True)
+        plt.axis('equal')
+        plt.show()
+
+        
+        
 
 
-foo = stats('Caida/data_caida_original.arff')
+foo = pie_chart('data_caida_original.arff')
 #print(foo)
