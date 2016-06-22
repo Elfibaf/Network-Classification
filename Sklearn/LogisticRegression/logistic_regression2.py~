@@ -1,22 +1,22 @@
 # Authors : Mehdi Crozes and Fabien Robin
 # Date : June 10th 2016
+# Update : June 20th 2016
 
-# LogisticClassifier for ARFF traffic network file 
+# LogisticClassifier with feature selection Weka for ARFF traffic network file 
 
 import arff
 import numpy as np
 import matplotlib.pyplot as py
 import time
 
-
 from extraction import *
 from sklearn.linear_model import LogisticRegression
 from sklearn.cross_validation import train_test_split,KFold
-from sklearn.metrics import precision_score,recall_score
+from sklearn.metrics import confusion_matrix,precision_score,recall_score
 
-# Step 1 : Import Arff file
+# Step 1 : Import Arff file with only 6 features
 
-arff_file = load_dataset("../../Data/data_caida_original.arff")
+arff_file = load_dataset("../../Data/Caida/features_caida_flowcalc2.arff")
 print "\tTotal dataset : "
 print "\tNumber of samples:",arff_file.nb_examples
 print "\tNumber of features:",len(arff_file.features[0])
@@ -31,10 +31,9 @@ feature_train,feature_test,label_train,label_test = split_data(arff_file)
 #Parameters for LogisticRegression : solver to minimize loss function and multi_class='multinomial' for multi_class problem to use the sofmax function so as to find the predicted probability of each class
 
 
-clf = LogisticRegression(penalty='l2',max_iter=5,solver='lbfgs',multi_class='ovr')
+clf = LogisticRegression(penalty='l2',max_iter=20,solver='newton-cg',multi_class='ovr')
 t0 = time.time()
 clf.fit(feature_train,label_train)
-
 print "\tTraining time: ",round(time.time()-t0,3),"s"
 print "\tNumber of Classes :",len (clf.classes_)
 

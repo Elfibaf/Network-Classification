@@ -19,8 +19,8 @@ from sklearn.feature_selection import chi2
 
 arff_file = load_dataset("../../../Data/Caida/data_caida_original.arff")
 print "\tTotal dataset : "
-print "\tNumber of features :",len(arff_file.features)
-print "\tNumber of labels :",len(arff_file.labels)
+print "\tNumber of samples:",arff_file.nb_examples
+print "\tNumber of features:",len(arff_file.features[0])
 
 # Step 2 : Building training_set and test_set
 

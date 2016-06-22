@@ -116,6 +116,7 @@ With 30 iterations,normalized features and tradionnal split:
 	Precision : 0.236818506726
 	Recall : 0.236818506726
 	Test Accuracy : 0.236818506726
+
 	Training Accuracy : 0.235487280793
 
 

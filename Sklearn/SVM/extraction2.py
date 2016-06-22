@@ -3,8 +3,6 @@ import numpy as np
 import os
 import arff
 
-from sklearn.cross_validation import train_test_split,KFold
-
 class DataSet(object):
     def __init__(self, features, labels):
         self._features = features 
@@ -45,11 +43,13 @@ def load_dataset(filename):
         elif nparray[3][i] == 'UDP':
             nparray[3][i] = 1
 
-    for i in range(len(nparray[4])):
-        nparray[4][i] = ''.join(nparray[4][i].split('.'))
-        nparray[6][i] = ''.join(nparray[6][i].split('.'))
+    for i in range(len(nparray[3])):
+        nparray[1][i] = ''.join(nparray[1][i].split('.'))
+        nparray[3][i] = ''.join(nparray[3][i].split('.'))
 
     nparray = nparray.T
+    
+
     return DataSet(nparray,labels)
 
 #Split implementation and convert features into float array

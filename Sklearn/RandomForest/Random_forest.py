@@ -10,7 +10,7 @@ import arff
 import extraction
 
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.cross_validation import train_test_split
+from sklearn.cross_validation import train_test_split,KFold
 from sklearn.grid_search import GridSearchCV
 
 
@@ -21,8 +21,10 @@ print "\tNumber of samples:",data.nb_examples
 print "\tNumber of features:",len(data.features[0])
 
 # Splitting data into a training and testing set
-feature_train,feature_test,label_train,label_test = train_test_split(data.features,data.labels,test_size=0.25,random_state=42)
 
+feature_train,feature_test,label_train,label_test = split_data(arff_file)
+
+#feature_train,feature_test,label_train,label_test = kfold_data(arff_file,10)
 
 param_grid = {"max_depth": [3, None],
               "max_features": [1, 3, 8],

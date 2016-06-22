@@ -42,7 +42,6 @@ print(feature_train_float[1])
 
 clf = tree.DecisionTreeClassifier()
 
-
 t0 = time.time()
 clf.fit(feature_train_float,label_train)
 

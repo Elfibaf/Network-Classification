@@ -7,14 +7,14 @@ import re
 import numpy as np
 import os
 import arff
-import extraction
+import extraction2
 
 from sklearn import svm
-from sklearn.cross_validation import train_test_split
+from sklearn.cross_validation import train_test_split,KFold
 from sklearn.preprocessing import normalize
 from sklearn.grid_search import GridSearchCV
 
-data = extraction.load_dataset('../Data/Capture_Port.arff')
+data = extraction2.load_dataset("../../Data/Caida/features_caida_flowcalc2.arff")
 
 print "\tTotal dataset : "
 print "\tNumber of samples:",data.nb_examples
@@ -23,7 +23,9 @@ print "\tNumber of features:",len(data.features[0])
 #data.features = normalize(data.features)
 #print(data.features)
 
-feature_train,feature_test,label_train,label_test = train_test_split(data.features,data.labels,test_size=0.25,random_state=42)
+feature_train,feature_test,label_train,label_test = split_data(arff_file)
+
+#feature_train,feature_test,label_train,label_test = kfold_data(arff_file,10)
 
 # Searching for best parameters for the classifier
 param_grid = [
