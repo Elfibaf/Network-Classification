@@ -1,7 +1,8 @@
 # Authors : Mehdi Crozes and Fabien Robin
 # Date : June 7th 2016
+# Update : June 22nd 2016
 
-# GaussianNB for ARFF traffic network file 
+# MultinomialNB with feature selection weka for ARFF traffic network file 
 
 import arff
 import numpy as np
@@ -9,10 +10,9 @@ import time
 import math
 
 from extraction import * 
-from sklearn.naive_bayes import GaussianNB,MultinomialNB,BernoulliNB
-from sklearn.cross_validation import train_test_split
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.cross_validation import train_test_split,KFold
 from sklearn.metrics import confusion_matrix,recall_score,precision_score
-from sklearn.feature_selection import VarianceThreshold,SelectKBest,f_classif
 from sklearn.preprocessing import MinMaxScaler
 
 # Step 1 : Import Arff file
@@ -24,13 +24,11 @@ print "\tNumber of features:",len(arff_file.features[0])
 
 # Step 2 : Building training_set and test_set
 
-feature_train,feature_test,label_train,label_test = train_test_split(arff_file.features,arff_file.labels,test_size=0.25,random_state=42)
+feature_train,feature_test,label_train,label_test = split_data(arff_file)
+
+#feature_train,feature_test,label_train,label_test = kfold_data(arff_file,10)
 
 # Step 3 : Fitting and training our classifier 
-# Before that, we had to convert our feature_train_float into float type because our feature_train is an array of string and generate a TypeError
-
-feature_train_float = feature_train.astype(np.float)
-feature_test_float = feature_test.astype(np.float)
 
 scaler = MinMaxScaler(copy='false')
 feature_train_rescaled = scaler.fit_transform(feature_train_float)
@@ -45,7 +43,6 @@ log_prob_class = clf.class_log_prior_
 prob_class = [math.pow(10,log_prob_class[i]) for i in log_prob_class]
 print "\tMax probablilite ",round(max(prob_class),10)
 	
-
 t1 = time.time()
 label_pred = clf.predict(feature_test_rescaled)
 print "\tPredicting time: ",round(time.time()-t1,3),"s"

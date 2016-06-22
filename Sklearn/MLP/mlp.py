@@ -9,9 +9,8 @@ import time
 
 from extraction import *
 from sklearn.neural_network import MLPClassifier 
-from sklearn.cross_validation import train_test_split
+from sklearn.cross_validation import train_test_split,KFold
 from sklearn.metrics import confusion_matrix,recall_score,precision_score
-from sklearn.feature_selection import VarianceThreshold
 
 # Step 1 : Import Arff file
 
@@ -20,19 +19,17 @@ print "\tTotal dataset : "
 print "\tNumber of samples:",arff_file.nb_examples
 print "\tNumber of features:",len(arff_file.features[0])
 
-
 # Step 2 : Building training_set and test_set
 
-feature_train,feature_test,label_train,label_test = train_test_split(arff_file.features,arff_file.labels,test_size=0.25,random_state=42)
+feature_train,feature_test,label_train,label_test = split_data(arff_file)
 
-feature_train_float = feature_train.astype(np.float)
-feature_test_float = feature_test.astype(np.float)
+#feature_train,feature_test,label_train,label_test = kfold_data(arff_file,10)
 
 # Step 3 : Standardization of feature_train and feature_test : theirs values will be now between 0. and 1.
 
 scaler = MinMaxScaler(copy='false')
-feature_train_rescaled =scaler.fit_transform(feature_train_float)
-feature_test_rescaled=scaler.fit_transform(feature_test_float) 
+feature_train_rescaled = scaler.fit_transform(feature_train)
+feature_test_rescaled = scaler.fit_transform(feature_test) 
 
 
 # Step 4 : Fitting and training our classifier 

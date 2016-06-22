@@ -69,7 +69,6 @@ def load_dataset(filename):
     barray = []
     for row in arff.load(filename):
          barray.append(list(row))
-	 print row
     labels = []
     for row in barray:
         labels.append(row.pop())
