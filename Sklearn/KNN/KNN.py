@@ -14,7 +14,7 @@ from sklearn.cross_validation import train_test_split
 from sklearn.grid_search import GridSearchCV
 
 
-data = extraction.load_dataset('../../Data/Caida/data_caida_original.arff')
+data = extraction.load_dataset('../../../Data/Caida/Tests_features/All/features_all_minmaxdurbytespckt.arff')
 print "\tTotal dataset : "
 print "\tNumber of samples:",data.nb_examples
 print "\tNumber of features:",len(data.features[0])

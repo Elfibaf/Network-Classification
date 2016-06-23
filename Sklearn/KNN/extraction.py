@@ -36,7 +36,7 @@ def load_dataset(filename):
 
 
     #Conversion of string attributes to float
-    nparray = nparray.T
+    """nparray = nparray.T
     for i in range(len(nparray[3])):
         if nparray[3][i] == 'TCP':
             nparray[3][i] = 0
@@ -47,7 +47,7 @@ def load_dataset(filename):
         nparray[4][i] = ''.join(nparray[4][i].split('.'))
         nparray[6][i] = ''.join(nparray[6][i].split('.'))
 
-    nparray = nparray.T
+    nparray = nparray.T"""
     
 
     return DataSet(nparray,labels)
