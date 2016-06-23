@@ -576,6 +576,85 @@ With min+max payload size + nb of packets + size of 1st packet + nb bytes + dura
 	    Recall : 0.723354515821
 	    Test Accuracy : 0.723354515821
 	    Teain Accuracy: 0.886979172383
+	    
+    RandomForest :
+    
+        Number of samples: 364452
+	    Number of features: 6
+        ('Prediction : ', array(['HTTP', '?crl_name', 'NETBIOS', ..., 'WINDOWS_RDP', 'NETBIOS',
+           'NETBIOS'], 
+          dtype='|S24'), '\n')
+        ('Labels : ', array(['HTTP', '?crl_name', 'HTTP', ..., 'WINDOWS_RDP', 'NETBIOS',
+           'NETBIOS'], 
+          dtype='|S24'), '\n')
+        ('Score : ', 0.73307870446588308)
+        
+        
+    KNN :
+    
+         Total dataset : 
+	    Number of samples: 364452
+	    Number of features: 6
+        155
+        ('Prediction : ', array(['HTTP', '?crl_name', 'NETBIOS', ..., 'SOCKS', 'HTTP', 'NETBIOS'], 
+          dtype='|S24'), '\n')
+        ('Labels : ', array(['HTTP', '?crl_name', 'HTTP', ..., 'WINDOWS_RDP', 'NETBIOS',
+           'NETBIOS'], 
+          dtype='|S24'), '\n')
+        ('Score : ', 0.73465915950522975)
+        
+        
+    Perceptron :
+    
+        Number of samples: 364452
+	    Number of features: 6
+	    Training time  58.1 s
+	    Predicting time  0.202 s
+	    Number of Classes : 155
+	    Precision : 0.279685665053
+	    Recall : 0.279685665053
+	    Test Accuracy : 0.279685665053
+	    Training Accuracy : 0.278514957617
+	    
+	    
+    Multinomial NB :
+    
+    	Number of samples: 364452
+	    Number of features: 6
+	    Training time  3.114 s
+	    Max probablilite  0.0001260024
+	    Predicting time:  0.202 s
+	    Precision : 0.273901638625
+	    Recall : 0.273901638625
+	    Test Accuracy : 0.273901638625
+	    Teain Accuracy: 0.272683371198
+	    
+    Bernoulli NB :
+    
+        Total dataset : 
+	    Number of samples: 364452
+	    Number of features: 6
+	    Training time  3.064 s
+	    Max probablilite  0.0001260024
+	    Predicting time:  0.202 s
+	    Precision : 0.190554586063
+	    Recall : 0.190554586063
+	    Test Accuracy : 0.190554586063
+	    Train Accuracy: 0.194611819023
+	    
+	    
+    Gaussian NB :
+    
+        Total dataset : 
+	    Number of samples: 364452
+	    Number of features: 6
+	    Training time  0.622 s
+	    Number of Classes : 155
+	    Predicting time:  0.904 s
+	    Precision : 0.171874485529
+	    Recall : 0.171874485529
+	    Test Accuracy : 0.171874485529
+	    Train Accuracy: 0.236197542246
     
     
         
