@@ -245,3 +245,5 @@ Training loss did not improve more than tol=0.000100 for two consecutive epochs.
 	Test Accuracy : 0.627136266164
 	Training Accuracy : 0.625584840923
 
+L'utilisation de KFold nous donne des résultats satisfaisant avec 82% d'accuracy pour k =10 mais les autres avec k=2 ou k=15 donnent 64% et 74% respectivement
+Sur du MLP classique

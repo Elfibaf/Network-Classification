@@ -7,14 +7,14 @@ import arff
 import numpy as np
 import time
 
-from extraction import *
+from extraction_feature_selection import *
 from sklearn.neural_network import MLPClassifier 
 from sklearn.cross_validation import train_test_split,KFold
 from sklearn.metrics import confusion_matrix,recall_score,precision_score
 
 # Step 1 : Import Arff file
 
-arff_file = load_dataset("../../Data/Caida/features_caida_flowcalc.arff")
+arff_file = load_dataset("../../Data/Caida/features_caida_flowcalc2.arff")
 print "\tTotal dataset : "
 print "\tNumber of samples:",arff_file.nb_examples
 print "\tNumber of features:",len(arff_file.features[0])

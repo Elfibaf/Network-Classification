@@ -737,7 +737,4 @@ With min+max payload size + nb of packets + size of 1st packet + nb bytes + dura
 
 	('Score : ', 0.84719440252435174)
 
-     Random Forest:
-	('Score : ', 0.88088901083824944)
-
 	 

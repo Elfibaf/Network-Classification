@@ -10,17 +10,20 @@ import arff
 import extraction
 
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.cross_validation import train_test_split
+from sklearn.cross_validation import train_test_split,KFold
 from sklearn.grid_search import GridSearchCV
 
 
-data = extraction.load_dataset('../../../Data/Caida/Tests_features/All/features_all_minmaxdurbytespckt.arff')
+data = extraction.load_dataset("../../Data/Caida/features_stats_best.arff")
 print "\tTotal dataset : "
 print "\tNumber of samples:",data.nb_examples
 print "\tNumber of features:",len(data.features[0])
 
 # Splitting data into a training and testing set
-feature_train,feature_test,label_train,label_test = train_test_split(data.features,data.labels,test_size=0.25,random_state=42)
+
+#feature_train,feature_test,label_train,label_test = train_test_split(data.features,data.labels,test_size=0.25,random_state=42)
+
+feature_train,feature_test,label_train,label_test = extraction.kfold_data(data,10)
 
 """param_grid = [
   {'leaf_size': [30, 20, 10, 40, 50], 'n_neighbors' : [5, 6, 7]},

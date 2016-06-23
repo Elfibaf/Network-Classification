@@ -15,16 +15,16 @@ from sklearn.preprocessing import MinMaxScaler
 
 # Step 1 : Import Arff file
 
-arff_file = load_dataset("../../Data/Caida/stats_flowcalc_caida.arff")
+arff_file = load_dataset("../../Data/Caida/features_stats_best.arff")
 print "\tTotal dataset : "
 print "\tNumber of samples:",arff_file.nb_examples
 print "\tNumber of features:",len(arff_file.features[0])
 
-# Step 2 : Building training_set and test_set
+# Step 2 : Building training_set and test_set (Kfold ou split)
 
-feature_train,feature_test,label_train,label_test = split_data(arff_file)
+#feature_train,feature_test,label_train,label_test = split_data(arff_file)
 
-#feature_train,feature_test,label_train,label_test = kfold_data(arff_file,10)
+feature_train,feature_test,label_train,label_test = kfold_data(arff_file,10)
 
 # Step 3 : Fitting and training our classifier 
 
@@ -33,9 +33,9 @@ scaler = MinMaxScaler(copy='false')
 feature_train_rescaled =scaler.fit_transform(feature_train)
 feature_test_rescaled=scaler.fit_transform(feature_test) 
 
-print feature_train_rescaled,feature_test_rescaled
+#print feature_train_rescaled,feature_test_rescaled
 
-clf = Perceptron(n_iter=50)
+clf = Perceptron(n_iter=15)
 t0 = time.time()
 clf.fit(feature_train_rescaled,label_train)
 print "\tTraining time ",round(time.time()-t0,3),"s"

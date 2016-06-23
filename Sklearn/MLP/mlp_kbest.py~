@@ -7,11 +7,11 @@ import arff
 import numpy as np
 import time
 
-from extraction import *
+from extraction_feature_selection import *
 from sklearn.neural_network import MLPClassifier 
 from sklearn.cross_validation import train_test_split,KFold
 from sklearn.metrics import recall_score,precision_score
-from sklearn.feature_selection import VarianceThreshold,SelectKBest,f_classif
+from sklearn.feature_selection import SelectKBest,f_classif
 
 # Step 1 : Import Arff file
 
@@ -23,9 +23,9 @@ print "\tNumber of features:",len(arff_file.features[0])
 
 # Step 2 : Building training_set and test_set
 
-feature_train,feature_test,label_train,label_test = split_data(arff_file)
+#feature_train,feature_test,label_train,label_test = split_data(arff_file)
 
-#feature_train,feature_test,label_train,label_test = kfold_data(arff_file,10)
+feature_train,feature_test,label_train,label_test = kfold_data(arff_file,10)
 
 # Step 3 : Standardization + Variance Thresold of feature_train and feature_test.
 

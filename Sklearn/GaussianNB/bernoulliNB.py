@@ -17,16 +17,16 @@ from sklearn.preprocessing import MinMaxScaler
 
 # Step 1 : Import Arff file
 
-arff_file = load_dataset("../../../Data/Caida/Tests_features/All/features_all_minmaxdurbytespckt.arff")
+arff_file = load_dataset("../../Data/Caida/features_stats_best.arff")
 print "Total dataset : "
 print "\tNumber of samples:",arff_file.nb_examples
 print "\tNumber of features:",len(arff_file.features[0])
 
 # Step 2 : Building training_set and test_set
 
-feature_train,feature_test,label_train,label_test = split_data(arff_file)
+#feature_train,feature_test,label_train,label_test = split_data(arff_file)
 
-#feature_train,feature_test,label_train,label_test = kfold_data(arff_file)
+feature_train,feature_test,label_train,label_test = kfold_data(arff_file,10)
 
 # Step 3 : Fitting and training our classifier 
 
@@ -34,7 +34,7 @@ scaler = MinMaxScaler(copy='false')
 feature_train_rescaled = scaler.fit_transform(feature_train)
 feature_test_rescaled = scaler.fit_transform(feature_test) 
 
-clf = BernoulliNB(binarize=0.01)
+clf = BernoulliNB(binarize=0.5)
 t0 = time.time()
 clf.fit(feature_train_rescaled,label_train)
 print "\tTraining time ",round(time.time()-t0,3),"s"

@@ -7,7 +7,7 @@ import arff
 import numpy as np
 import time
 
-from extraction import *
+from extraction_feature_selection import *
 from sklearn.neural_network import MLPClassifier 
 from sklearn.cross_validation import train_test_split,KFold
 from sklearn.metrics import recall_score,precision_score
