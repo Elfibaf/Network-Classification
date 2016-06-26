@@ -740,4 +740,17 @@ With min+max payload size + nb of packets + size of 1st packet + nb bytes + dura
      Random Forest:
 	('Score : ', 0.88088901083824944)
 
+     Perceptron:
+	
+	Total dataset : 
+	Number of samples: 364452
+	Number of features: 6
+	Training time  239.275 s
+	Predicting time  0.084 s
+	Number of Classes : 159
+	Precision : 0.341665523391
+	Recall : 0.341665523391
+	Test Accuracy : 0.341665523391
+	Training Accuracy : 0.318045041722
+
 	 

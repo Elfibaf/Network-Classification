@@ -1,5 +1,6 @@
 # Authors : Mehdi Crozes and Fabien Robin
 # Date : June 7th 2016
+# Update : June 26th 2016
 
 # DecisionTreeClassifier for ARFF traffic network file 
 
@@ -26,7 +27,6 @@ feature_train,feature_test,label_train,label_test = kfold_data(arff_file, 10)
 
 # Step 3 : Fitting and training our classifier 
 
-
 clf = tree.DecisionTreeClassifier()
 t0 = time.time()
 clf.fit(feature_train,label_train)
@@ -38,13 +38,18 @@ t1 = time.time()
 label_pred = clf.predict(feature_test)
 print "\tPredicting time: ",round(time.time()-t1,3),"s"
 
-# Step 4 : Precision_score and recall_score
+# Step 4 : Precision_score and recall_score + plot confusion_matrix
 
 print "\tPrecision :",precision_score(label_test,label_pred,average='micro')
 print "\tRecall :",recall_score(label_test,label_pred,average='micro')
 
+cm = confusion_matrix(label_test,label_pred)
+cm_normalized = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+py.figure()
+plot_confusion_matrix(cm_normalized,clf)
+py.show()
 
-# Step 5 : Accuracy 
+# Step 5 : Test and Train Accuracy 
 
 score = clf.score(feature_test,label_test)
 score2 = clf.score(feature_train,label_train)
