@@ -1,0 +1,18 @@
+Avec les features "basiques" de flowcalc, 2 couches de 800 neurones chacune : 77% accuracy
+
+Avec les features basiques + module stats de flowcalc, 2 couches de même taille :    0.89 avec 800 neurones/couche
+                                                                                     0.86 avec 1000 neurones/couche
+                                                                                     0.83 avec 700 neurones/couche
+                                                                                     0.85 avec 600 neurones/couche
+                                                                                     0.85 avec 500 neurones/couche
+                                                                                     0.85 avec 400 neurones/couche
+                                                                                     0.88 avec 400 neurones/couche
+                                                                                     0.87 avec 300 neurones/couche
+                                                                                     0.87 avec 200 neurones/couche
+                                                                                     0.82 avec 100 neurones/couche
+                                                                                     
+                                                                                     
+Test avec ces features :
+    min+max payload size + nb of packets + size of 1st packet + nb bytes + duration : 50% accuracy
+
+
