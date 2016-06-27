@@ -24,7 +24,6 @@ print "\tNumber of features:",len(arff_file.features[0])
 
 # Step 2 : Building training_set and test_set
 
-
 selector = SelectKBest(f_classif, k=4)
 features = arff_file.features.astype(np.float)
 new_feat = selector.fit_transform(features, arff_file.labels)
