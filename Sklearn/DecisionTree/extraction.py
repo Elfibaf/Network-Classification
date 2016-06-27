@@ -78,11 +78,13 @@ def load_dataset_barcelona(filename):
         flow.pop()
         flow.pop()
         flow.pop()
+        flow.pop(-2)
+        
 
     #list of indexes of the unlabelled flow to delete them
     indexes = []
     for i in range(len(res)):
-        if res[i][9] == '-':        
+        if res[i][8] == '-':        
             indexes.append(i)
     res = np.asarray(res)
     
@@ -95,10 +97,21 @@ def load_dataset_barcelona(filename):
     for flow in features:
         labels.append(flow.pop())
 
-    features = np.asarray(features)
+    features = np.asarray(features).T
+    for i in range(len(features[7])):
+        if features[7][i] == 'TCP':
+            features[7][i] = 0
+        elif features[7][i] == 'UDP':
+            features[7][i] = 1
+
+    for i in range(len(features[3])):
+        features[3][i] = ''.join(features[3][i].split('.'))
+        features[4][i] = ''.join(features[4][i].split('.'))
+
+    features = features.T[1:].astype(np.float)
     labels = np.asarray(labels)
 
-    return DataSet(features[1:], labels[1:])
+    return DataSet(features, labels[1:])
 
 
 #Split implementation and convert features into float array
@@ -138,3 +151,5 @@ def plot_confusion_matrix(cm,clf,title="Confusion matrix",cmap=py.cm.Blues):
     py.tight_layout()
     py.ylabel("True label")
     py.xlabel("Predicted label")
+
+
