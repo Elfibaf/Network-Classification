@@ -1,0 +1,17 @@
+Info 1 :
+    
+    Number of samples: 141252
+	Number of features: 8
+    Accuracy : 0.997 (contre 0.98 avec Caida)
+    
+Info 2 :
+    
+    Number of samples: 248415
+	Number of features: 8
+    Accuracy : 0.997
+    
+Info 3 :
+    
+    Number of samples: 131326
+	Number of features: 8
+    Accuracy : 0.998
