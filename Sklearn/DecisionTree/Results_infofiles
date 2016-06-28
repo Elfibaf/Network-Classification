@@ -1,0 +1,38 @@
+packets_all_1.info :
+
+    Number of samples: 141252
+	Number of features: 8
+	Training time:  0.366 s
+	Number of Classes : 22
+	Predicting time:  0.008 s
+	Precision : 0.997876106195
+	Recall : 0.997876106195
+	Test Accuracy : 0.997876106195
+	Teain Accuracy: 1.0
+
+packets_all_2.info :
+
+    Number of samples: 248415
+	Number of features: 8
+	Training time:  0.752 s
+	Number of Classes : 26
+	Predicting time:  0.013 s
+	Precision : 0.997061309931
+	Recall : 0.997061309931
+	Test Accuracy : 0.997061309931
+	Teain Accuracy: 1.0
+	
+	
+packets_all_3.info :
+
+    Number of samples: 131326
+	Number of features: 8
+	Training time:  0.44 s
+	Number of Classes : 13
+	Predicting time:  0.007 s
+	Precision : 0.998020103564
+	Recall : 0.998020103564
+	Test Accuracy : 0.998020103564
+	Teain Accuracy: 1.0                                                       
+
+
