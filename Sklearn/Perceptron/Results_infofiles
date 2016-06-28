@@ -1,0 +1,44 @@
+Info 1 :
+
+    31 iterations
+
+    Number of samples: 141252
+	Number of features: 8
+	Training time  6.852 s
+	Predicting time  0.005 s
+	Number of Classes : 19
+	Precision : 0.823079646018
+	Recall : 0.823079646018
+	Test Accuracy : 0.823079646018
+	Training Accuracy : 0.818622322559
+	
+	
+	
+Info 2 :
+
+    31 iterations
+
+    Number of samples: 248415
+	Number of features: 8
+	Training time  18.559 s
+	Predicting time  0.012 s
+	Number of Classes : 27
+	Precision : 0.874723239805
+	Recall : 0.874723239805
+	Test Accuracy : 0.874723239805
+	Training Accuracy : 0.880692746026
+	
+	
+Info 3 :
+
+    31 iterations
+    
+    Number of samples: 131326
+	Number of features: 8
+	Training time  4.094 s
+	Predicting time  0.004 s
+	Number of Classes : 13
+	Precision : 0.87602802315
+	Recall : 0.87602802315
+	Test Accuracy : 0.87602802315
+	Training Accuracy : 0.877481090411
