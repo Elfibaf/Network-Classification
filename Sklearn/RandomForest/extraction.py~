@@ -2,6 +2,7 @@ import re
 import numpy as np
 import os
 import arff
+from sklearn.cross_validation import train_test_split,KFold
 
 class DataSet(object):
     def __init__(self, features, labels):
