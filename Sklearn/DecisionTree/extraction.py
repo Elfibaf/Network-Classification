@@ -1,8 +1,13 @@
+# Authors: Mehdi Crozes and Fabien Robin
+# Date : June 9th 2016
+# Update : June 28th 2016
+
 import re
 import numpy as np
 import os
 import matplotlib.pyplot as py
 import arff
+
 from sklearn.cross_validation import train_test_split,KFold
 
 
@@ -38,7 +43,7 @@ def load_dataset(filename):
     labels = np.array(labels)
 
 
-    """#Conversion of string attributes to float
+    #Conversion of string attributes to float
     nparray = nparray.T
     for i in range(len(nparray[3])):
         if nparray[3][i] == 'TCP':
@@ -46,11 +51,11 @@ def load_dataset(filename):
         elif nparray[3][i] == 'UDP':
             nparray[3][i] = 1
 
-    for i in range(len(nparray[4])):
-        nparray[4][i] = ''.join(nparray[4][i].split('.'))
-        nparray[6][i] = ''.join(nparray[6][i].split('.'))
+    for i in range(len(nparray[3])):
+        nparray[1][i] = ''.join(nparray[1][i].split('.'))
+        nparray[3][i] = ''.join(nparray[3][i].split('.'))
 
-    nparray = nparray.T"""
+    nparray = nparray.T
     
 
     return DataSet(nparray,labels)
@@ -129,7 +134,7 @@ def split_data(arff_file):
 
 def kfold_data(arff_file,num_folds):
     
-    Kf = KFold(arff_file.nb_examples,n_folds=num_folds)
+    Kf = KFold(arff_file.nb_examples,n_folds=num_folds,shuffle=True)
     for train_indices,test_indices in Kf:
         feature_train,feature_test = [arff_file.features[i] for i in train_indices],[arff_file.features[j] for j in test_indices]
         label_train,label_test = [ arff_file.labels[k] for k in train_indices],[arff_file.labels[l] for l in test_indices]

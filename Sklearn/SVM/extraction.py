@@ -2,6 +2,7 @@ import re
 import numpy as np
 import os
 import arff
+from sklearn.cross_validation import train_test_split,KFold
 
 class DataSet(object):
     def __init__(self, features, labels):
@@ -67,7 +68,7 @@ def split_data(arff_file):
 
 def kfold_data(arff_file,num_folds):
     
-    Kf = KFold(arff_file.nb_examples,n_folds=num_folds)
+    Kf = KFold(arff_file.nb_examples,n_folds=num_folds,shuffle=True)
     for train_indices,test_indices in Kf:
         feature_train,feature_test = [arff_file.features[i] for i in train_indices],[arff_file.features[j] for j in test_indices]
         label_train,label_test = [ arff_file.labels[k] for k in train_indices],[arff_file.labels[l] for l in test_indices]
@@ -76,3 +77,15 @@ def kfold_data(arff_file,num_folds):
     feature_train_list = np.asarray(feature_train)
 
     return feature_train,feature_test,label_train,label_test
+
+def plot_confusion_matrix(cm,clf,title="Confusion matrix",cmap=py.cm.Blues):
+    
+    py.imshow(cm,interpolation="nearest",cmap=cmap)
+    py.title(title)
+    py.colorbar()
+    tick_marks = np.arange(len(clf.classes_))
+    py.xticks(tick_marks,clf.classes_,rotation=45)
+    py.yticks(tick_marks,clf.classes_)
+    py.tight_layout()
+    py.ylabel("True label")
+    py.xlabel("Predicted label")

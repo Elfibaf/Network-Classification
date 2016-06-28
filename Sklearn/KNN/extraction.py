@@ -127,7 +127,7 @@ def split_data(arff_file):
 
 def kfold_data(arff_file,num_folds):
     
-    Kf = KFold(arff_file.nb_examples,n_folds=num_folds)
+    Kf = KFold(arff_file.nb_examples,n_folds=num_folds,shuffle=True)
     for train_indices,test_indices in Kf:
         feature_train,feature_test = [arff_file.features[i] for i in train_indices],[arff_file.features[j] for j in test_indices]
         label_train,label_test = [ arff_file.labels[k] for k in train_indices],[arff_file.labels[l] for l in test_indices]

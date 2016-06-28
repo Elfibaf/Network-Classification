@@ -54,8 +54,8 @@ def pie_chart(filename):
         cs = cm.Set1(np.arange(10)/10.)
 
         #Creating pie chart
-	title_str = "Pie chart of classes included in ",filename
-	plt.title(title_str) 
+	
+	plt.title(filename) 
         plt.pie([v for k,v in labels.items()],
                 labels = [k for k,v in labels.items()],
                 colors = cs,
@@ -66,6 +66,6 @@ def pie_chart(filename):
 
         
        
-filename = raw_input("Entry arff filename:")
+filename = raw_input("Entry filename:")
 foo = pie_chart(filename)
 

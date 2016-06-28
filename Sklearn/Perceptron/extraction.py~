@@ -52,6 +52,63 @@ def load_dataset(filename):
     nparray = nparray.T"""
     return DataSet(nparray,labels)
 
+
+#Loads a dataset from a .info file from the Barcelona data
+def load_dataset_barcelona(filename):
+
+    #Opening the file and reading it
+    info_file = open(filename)
+    text = info_file.read()
+
+    #regex to capture every line of the file into a list
+    regular_expression = r"(.+#)+"
+    res = re.findall(regular_expression, text)
+
+    #for each line, we split the features according to the "#" separator.
+    #We get a 2-dimensions (14*nb_flows) list
+    res = [l.split("#") for l in res]
+
+    #Getting rid of the unlabelled data + the last 3 features that are useless
+    for flow in res:
+        flow.pop()
+        flow.pop()
+        flow.pop()
+        flow.pop()
+        flow.pop(-2)
+        
+
+    #list of indexes of the unlabelled flow to delete them
+    indexes = []
+    for i in range(len(res)):
+        if res[i][8] == '-':        
+            indexes.append(i)
+    res = np.asarray(res)
+    
+    #Deleting flows with the above list of indexes
+    features = np.delete(res, indexes, 0).tolist()
+
+
+    #Extracting labels
+    labels = []
+    for flow in features:
+        labels.append(flow.pop())
+
+    features = np.asarray(features).T
+    for i in range(len(features[7])):
+        if features[7][i] == 'TCP':
+            features[7][i] = 0
+        elif features[7][i] == 'UDP':
+            features[7][i] = 1
+
+    for i in range(len(features[3])):
+        features[3][i] = ''.join(features[3][i].split('.'))
+        features[4][i] = ''.join(features[4][i].split('.'))
+
+    features = features.T[1:].astype(np.float)
+    labels = np.asarray(labels)
+
+    return DataSet(features, labels[1:])
+
 #Split implementation and convert features into float array
 
 def split_data(arff_file):
