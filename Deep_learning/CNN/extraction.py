@@ -3,16 +3,17 @@ import numpy as np
 import os
 import matplotlib.pyplot as py
 import arff
+import pickle
 
 from sklearn.cross_validation import train_test_split,KFold
 
 
 class DataSet(object):
-    def __init__(self, features, labels, l):
+    def __init__(self, features, labels, dict_labels={}):
         self._features = features 
         self._labels = labels 
         self._nb_examples = labels.shape[0]
-        self._l = l
+        self._dict_labels = dict_labels
 
     @property
     def features(self):
@@ -23,8 +24,8 @@ class DataSet(object):
         return self._labels
         
     @property
-    def l(self):
-        return self._l
+    def dict_labels(self):
+        return self._dict_labels
 
     @property
     def nb_examples(self):
@@ -32,7 +33,7 @@ class DataSet(object):
         
     @property
     def nb_classes(self):
-        return len({key: None for key in self._l})
+        return len(self._dict_labels)
 
 
 #Creates a DataSet from an arff file
@@ -136,7 +137,7 @@ def load_dataset(filename):
 
     return DataSet(features, labels_one_hot, labels)"""
     
-def load_dataset_barcelona(filename):
+def load_dataset_info(filename, train=True):
 
     #Opening the file and reading it
     info_file = open(filename)
@@ -188,24 +189,34 @@ def load_dataset_barcelona(filename):
 
     features = features.T[1:]#.astype(np.float)
     features = [" ".join(feature) for feature in features]
-    labels.pop(1)
+    labels.pop(0)
     labels = np.asarray(labels)
-    
-    #Turning labels into 1-hot vectors
-    dict_labels = {} #dictionnary containing index of each label in the 1-hot vector
-    i = 0
-    for label in labels:
-        if not label in dict_labels:
-            dict_labels[label] = i
-            i += 1
 
+    #If we load a Dataset for training, we create the labels dictionary and save it into a file
+    if train:
+        #Turning labels into 1-hot vectors
+        dict_labels = {} #dictionnary containing index of each label in the 1-hot vector
+        i = 0
+        for label in labels:
+            if not label in dict_labels:
+                dict_labels[label] = i
+                i += 1
+
+        save_obj(dict_labels, "dict_labels")
+
+    #If we load a Dataset for evaluation, we load the dictionary created before the training phase and use it to create the 1-hot vectors
+    else:
+        dict_labels = load_obj("dict_labels")
+        
     labels_one_hot = np.zeros((len(labels),len(dict_labels)), dtype = 'i')
     for i in range(len(labels)):
         labels_one_hot[i][dict_labels[labels[i]]] = 1
 
-    return DataSet(features, labels_one_hot, labels)
+    return DataSet(features, labels_one_hot, dict_labels)
     
 
+
+    
 
 #Split implementation and convert features into float array
 
@@ -244,8 +255,21 @@ def plot_confusion_matrix(cm,clf,title="Confusion matrix",cmap=py.cm.Blues):
     py.tight_layout()
     py.ylabel("True label")
     py.xlabel("Predicted label")
-    
-#data = load_dataset_barcelona("../../Data/Barcelona/packets_all_2.info")
-#print(data.features)
 
+
+#To save an object into a file
+def save_obj(obj, name ):
+    with open(name + '.pkl', 'wb') as f:
+        pickle.dump(obj, f, pickle.HIGHEST_PROTOCOL)
+
+
+# To load an object 
+def load_obj(name ):
+    with open(name + '.pkl', 'rb') as f:
+        return pickle.load(f)
+    
+#data = load_dataset_info("../../Data/Barcelona/packets_all_2.info", False)
+
+foo = [2, 3, 5, 4, 8, 9, 10, 20, 61, 15, 58, 65]
+print(foo[-5:])
 
