@@ -3,14 +3,19 @@ import numpy as np
 import os
 import matplotlib.pyplot as py
 import arff
+<<<<<<< HEAD
+=======
+import pickle
+
+>>>>>>> 48ae062647ed94dd0d994f98853eccd8a69fa990
 from sklearn.cross_validation import train_test_split,KFold
 
 class DataSet(object):
-    def __init__(self, features, labels, l):
+    def __init__(self, features, labels, dict_labels={}):
         self._features = features 
         self._labels = labels 
         self._nb_examples = labels.shape[0]
-        self._l = l
+        self._dict_labels = dict_labels
 
     @property
     def features(self):
@@ -21,8 +26,8 @@ class DataSet(object):
         return self._labels
         
     @property
-    def l(self):
-        return self._l
+    def dict_labels(self):
+        return self._dict_labels
 
     @property
     def nb_examples(self):
@@ -30,7 +35,7 @@ class DataSet(object):
         
     @property
     def nb_classes(self):
-        return len({key: None for key in self._l})
+        return len(self._dict_labels)
 
 #Conversion of string attributes to float
 def string_attributes_to_float(nparray):
@@ -47,7 +52,117 @@ def string_attributes_to_float(nparray):
         nparray[3][i] = ''.join(nparray[3][i].split('.'))
 
     nparray = nparray.T
+<<<<<<< HEAD
     return nparray
+=======
+    
+
+    return DataSet(nparray,labels)
+
+
+
+#Loads a dataset from a .info file from the Barcelona data
+"""def load_dataset_barcelona(filename):
+
+    #Opening the file and reading it
+    info_file = open(filename)
+    text = info_file.read()
+
+    #regex to capture every line of the file into a list
+    regular_expression = r"(.+#)+"
+    res = re.findall(regular_expression, text)
+
+    #for each line, we split the features according to the "#" separator.
+    #We get a 2-dimensions (14*nb_flows) list
+    res = [l.split("#") for l in res]
+
+    #Getting rid of the unlabelled data + the last 3 features that are useless
+    for flow in res:
+        flow.pop()
+        flow.pop()
+        flow.pop()
+        flow.pop()
+        flow.pop(-2)
+        
+
+    #list of indexes of the unlabelled flow to delete them
+    indexes = []
+    for i in range(len(res)):
+        if res[i][8] == '-':        
+            indexes.append(i)
+    res = np.asarray(res)
+    
+    #Deleting flows with the above list of indexes
+    features = np.delete(res, indexes, 0).tolist()
+
+
+    #Extracting labels
+    labels = []
+    for flow in features:
+        labels.append(flow.pop())
+
+    features = np.asarray(features).T
+    for i in range(len(features[7])):
+        if features[7][i] == 'TCP':
+            features[7][i] = 0
+        elif features[7][i] == 'UDP':
+            features[7][i] = 1
+
+    for i in range(len(features[3])):
+        features[3][i] = ''.join(features[3][i].split('.'))
+        features[4][i] = ''.join(features[4][i].split('.'))
+
+    features = features.T[1:]#.astype(np.float)
+    labels.pop(1)
+    labels = np.asarray(labels)
+    
+    #Turning labels into 1-hot vectors
+    dict_labels = {} #dictionnary containing index of each label in the 1-hot vector
+    i = 0
+    for label in labels:
+        if not label in dict_labels:
+            dict_labels[label] = i
+            i += 1
+
+    labels_one_hot = np.zeros((len(labels),len(dict_labels)), dtype = 'i')
+    for i in range(len(labels)):
+        labels_one_hot[i][dict_labels[labels[i]]] = 1
+
+    return DataSet(features, labels_one_hot, labels)"""
+    
+def load_dataset_info(filename, train=True):
+
+    #Opening the file and reading it
+    info_file = open(filename)
+    text = info_file.read()
+
+    #regex to capture every line of the file into a list
+    regular_expression = r"(.+#)+"
+    res = re.findall(regular_expression, text)
+
+    #for each line, we split the features according to the "#" separator.
+    #We get a 2-dimensions (14*nb_flows) list
+    res = [l.split("#") for l in res]
+
+    #Getting rid of the unlabelled data + the last 3 features that are useless
+    for flow in res:
+        flow.pop()
+        flow.pop()
+        flow.pop()
+        flow.pop()
+        flow.pop(-2)
+        
+
+    #list of indexes of the unlabelled flow to delete them
+    indexes = []
+    for i in range(len(res)):
+        if res[i][8] == '-':        
+            indexes.append(i)
+    res = np.asarray(res)
+    
+    #Deleting flows with the above list of indexes
+    features = np.delete(res, indexes, 0).tolist()
+>>>>>>> 48ae062647ed94dd0d994f98853eccd8a69fa990
 
 #Creates a DataSet from an arff file
 def load_dataset(filename):
@@ -56,6 +171,7 @@ def load_dataset(filename):
     for row in arff.load(filename):
          barray.append(list(row))
     labels = []
+<<<<<<< HEAD
     for row in barray:
         labels.append(row.pop())
         #row.pop()
@@ -64,6 +180,54 @@ def load_dataset(filename):
     nparray = string_attributes_to_float(np.array(barray))
     
     return DataSet(nparray,labels)
+=======
+    for flow in features:
+        labels.append(flow.pop())
+
+    features = np.asarray(features).T
+    for i in range(len(features[7])):
+        if features[7][i] == 'TCP':
+            features[7][i] = 0
+        elif features[7][i] == 'UDP':
+            features[7][i] = 1
+
+    for i in range(len(features[3])):
+        features[3][i] = ''.join(features[3][i].split('.'))
+        features[4][i] = ''.join(features[4][i].split('.'))
+
+    features = features.T[1:]#.astype(np.float)
+    features = [" ".join(feature) for feature in features]
+    labels.pop(0)
+    labels = np.asarray(labels)
+
+    #If we load a Dataset for training, we create the labels dictionary and save it into a file
+    if train:
+        #Turning labels into 1-hot vectors
+        dict_labels = {} #dictionnary containing index of each label in the 1-hot vector
+        i = 0
+        for label in labels:
+            if not label in dict_labels:
+                dict_labels[label] = i
+                i += 1
+
+        save_obj(dict_labels, "dict_labels")
+
+    #If we load a Dataset for evaluation, we load the dictionary created before the training phase and use it to create the 1-hot vectors
+    else:
+        dict_labels = load_obj("dict_labels")
+        
+    labels_one_hot = np.zeros((len(labels),len(dict_labels)), dtype = 'i')
+    for i in range(len(labels)):
+        labels_one_hot[i][dict_labels[labels[i]]] = 1
+
+    return DataSet(features, labels_one_hot, dict_labels)
+    
+
+
+    
+
+#Split implementation and convert features into float array
+>>>>>>> 48ae062647ed94dd0d994f98853eccd8a69fa990
 
 def split_data(arff_file):
 
@@ -97,4 +261,24 @@ def plot_confusion_matrix(cm,clf,title="Confusion matrix",cmap=py.cm.Blues):
     py.tight_layout()
     py.ylabel("True label")
     py.xlabel("Predicted label")
+
+
+#To save an object into a file
+def save_obj(obj, name ):
+    with open(name + '.pkl', 'wb') as f:
+        pickle.dump(obj, f, pickle.HIGHEST_PROTOCOL)
+
+
+# To load an object 
+def load_obj(name ):
+    with open(name + '.pkl', 'rb') as f:
+        return pickle.load(f)
     
+<<<<<<< HEAD
+=======
+#data = load_dataset_info("../../Data/Barcelona/packets_all_2.info", False)
+
+foo = [2, 3, 5, 4, 8, 9, 10, 20, 61, 15, 58, 65]
+print(foo[-5:])
+
+>>>>>>> 48ae062647ed94dd0d994f98853eccd8a69fa990

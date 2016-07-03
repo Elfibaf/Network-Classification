@@ -8,7 +8,11 @@ import datetime
 import data_helpers
 from text_cnn import TextCNN
 from tensorflow.contrib import learn
+<<<<<<< HEAD
 from extraction_barcelona import load_dataset_barcelona
+=======
+from extraction import load_dataset_info, save_obj
+>>>>>>> 48ae062647ed94dd0d994f98853eccd8a69fa990
 
 # Parameters
 # ==================================================
@@ -42,7 +46,11 @@ print("")
 
 # Load data
 print("Loading data...")
+<<<<<<< HEAD
 Data = load_dataset_barcelona("../../Data/Info_file/packets_all_3.info")
+=======
+Data = load_dataset_info("../../Data/Barcelona/packets_all_2.info", False)
+>>>>>>> 48ae062647ed94dd0d994f98853eccd8a69fa990
 x_text, y = Data.features, Data.labels
 
 # Build vocabulary
@@ -61,6 +69,8 @@ y_shuffled = y[shuffle_indices]
 # TODO: This is very crude, should use cross-validation
 x_train, x_dev = x_shuffled[:-1000], x_shuffled[-1000:]
 y_train, y_dev = y_shuffled[:-1000], y_shuffled[-1000:]
+save_obj(x_dev, "x_test")
+save_obj(y_dev, "y_test")
 print("Vocabulary Size: {:d}".format(len(vocab_processor.vocabulary_)))
 print("Train/Dev split: {:d}/{:d}".format(len(y_train), len(y_dev)))
 
