@@ -8,6 +8,7 @@ import datetime
 import data_helpers
 from text_cnn import TextCNN
 from tensorflow.contrib import learn
+from extraction import load_dataset_barcelona
 from extraction_barcelona import load_dataset_barcelona
 
 # Parameters

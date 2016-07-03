@@ -1,0 +1,33 @@
+MLP :
+	-> packet 1 avec max_iter=10
+
+	Training  time  36.083 s
+	Predicting time  0.157 s
+	Number of Classes : 22
+	Precision : 0.829592920354
+	Recall : 0.829592920354
+	Test Accuracy : 0.829592920354
+	Training Accuracy : 0.82625248767
+
+
+	-> packet 2 avec max_iter=6
+
+	Training  time  49.085 s
+	Predicting time  0.259 s
+	Number of Classes : 26
+	Precision : 0.837164365364
+	Recall : 0.837164365364
+	Test Accuracy : 0.837164365364
+	Training Accuracy : 0.835472818843
+
+
+	-> packet 3 avec max_iter=9
+
+	Training  time  28.34 s
+	Predicting time  0.17 s
+	Number of Classes : 13
+	Precision : 0.899329881206
+	Recall : 0.899329881206
+	Test Accuracy : 0.899329881206
+	Training Accuracy : 0.896280691067
+

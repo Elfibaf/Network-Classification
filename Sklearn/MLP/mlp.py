@@ -14,16 +14,17 @@ from sklearn.metrics import confusion_matrix,recall_score,precision_score
 
 # Step 1 : Import Arff file
 
-arff_file = load_dataset("../../Data/Caida/features_caida_flowcalc2.arff")
+#arff_file = load_dataset("../../Data/Caida/features_caida_flowcalc2.arff")
+arff_file = load_dataset_barcelona("../../Data/Info_file/packets_all_1.info")
 print "\tTotal dataset : "
 print "\tNumber of samples:",arff_file.nb_examples
 print "\tNumber of features:",len(arff_file.features[0])
 
 # Step 2 : Building training_set and test_set
 
-feature_train,feature_test,label_train,label_test = split_data(arff_file)
+#feature_train,feature_test,label_train,label_test = split_data(arff_file)
 
-#feature_train,feature_test,label_train,label_test = kfold_data(arff_file,10)
+feature_train,feature_test,label_train,label_test = kfold_data(arff_file,10)
 
 # Step 3 : Standardization of feature_train and feature_test : theirs values will be now between 0. and 1.
 

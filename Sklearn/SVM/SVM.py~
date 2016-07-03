@@ -7,38 +7,28 @@ import re
 import numpy as np
 import os
 import arff
-import extraction2
+from extraction2 import *
 
 from sklearn import svm
 from sklearn.cross_validation import train_test_split,KFold
 from sklearn.preprocessing import normalize
-from sklearn.grid_search import GridSearchCV
 
-data = extraction2.load_dataset("../../Data/Caida/features_caida_flowcalc2.arff")
 
+arff_file = load_dataset_barcelona("../../Data/Info_file/packets_all_1.info")
 print "\tTotal dataset : "
-print "\tNumber of samples:",data.nb_examples
-print "\tNumber of features:",len(data.features[0])
-
-#data.features = normalize(data.features)
-#print(data.features)
+print "\tNumber of samples:",arff_file.nb_examples
+print "\tNumber of features:",len(arff_file.features[0])
 
 
+#feature_train,feature_test,label_train,label_test = split_data(arff_file)
 
-# Searching for best parameters for the classifier
-param_grid = [
-  {'C': [1, 10, 100, 1000], 'gamma': np.logspace(-20,0,num=21), 'kernel': ['rbf']},
- ]
+feature_train,feature_test,label_train,label_test = kfold_data(arff_file,10)
 
-model = GridSearchCV(svm.SVC(C=1), param_grid)
-
+model = svm.SVC(C=1,random_state=1)
 X = feature_train
 Y = label_train
 
 model.fit(X, Y)
-
-print("Best parameters : ", model.best_params_)
-
 print(model.score(X, Y))
 
 predicted = model.predict(feature_test)

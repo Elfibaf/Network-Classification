@@ -3,9 +3,7 @@ import numpy as np
 import os
 import matplotlib.pyplot as py
 import arff
-
 from sklearn.cross_validation import train_test_split,KFold
-
 
 class DataSet(object):
     def __init__(self, features, labels, l):
@@ -34,21 +32,9 @@ class DataSet(object):
     def nb_classes(self):
         return len({key: None for key in self._l})
 
+#Conversion of string attributes to float
+def string_attributes_to_float(nparray):
 
-#Creates a DataSet from an arff file
-def load_dataset(filename):
-    barray = []
-    for row in arff.load(filename):
-         barray.append(list(row))
-    labels = []
-    for row in barray:
-        labels.append(row.pop())
-        #row.pop()
-    nparray = np.array(barray)
-    labels = np.array(labels)
-
-
-    #Conversion of string attributes to float
     nparray = nparray.T
     for i in range(len(nparray[3])):
         if nparray[3][i] == 'TCP':
@@ -61,153 +47,23 @@ def load_dataset(filename):
         nparray[3][i] = ''.join(nparray[3][i].split('.'))
 
     nparray = nparray.T
-    
+    return nparray
 
+#Creates a DataSet from an arff file
+def load_dataset(filename):
+
+    barray = []
+    for row in arff.load(filename):
+         barray.append(list(row))
+    labels = []
+    for row in barray:
+        labels.append(row.pop())
+        #row.pop()
+    # nparray=np.array(barray)
+    labels = np.array(labels) 
+    nparray = string_attributes_to_float(np.array(barray))
+    
     return DataSet(nparray,labels)
-
-
-
-#Loads a dataset from a .info file from the Barcelona data
-"""def load_dataset_barcelona(filename):
-
-    #Opening the file and reading it
-    info_file = open(filename)
-    text = info_file.read()
-
-    #regex to capture every line of the file into a list
-    regular_expression = r"(.+#)+"
-    res = re.findall(regular_expression, text)
-
-    #for each line, we split the features according to the "#" separator.
-    #We get a 2-dimensions (14*nb_flows) list
-    res = [l.split("#") for l in res]
-
-    #Getting rid of the unlabelled data + the last 3 features that are useless
-    for flow in res:
-        flow.pop()
-        flow.pop()
-        flow.pop()
-        flow.pop()
-        flow.pop(-2)
-        
-
-    #list of indexes of the unlabelled flow to delete them
-    indexes = []
-    for i in range(len(res)):
-        if res[i][8] == '-':        
-            indexes.append(i)
-    res = np.asarray(res)
-    
-    #Deleting flows with the above list of indexes
-    features = np.delete(res, indexes, 0).tolist()
-
-
-    #Extracting labels
-    labels = []
-    for flow in features:
-        labels.append(flow.pop())
-
-    features = np.asarray(features).T
-    for i in range(len(features[7])):
-        if features[7][i] == 'TCP':
-            features[7][i] = 0
-        elif features[7][i] == 'UDP':
-            features[7][i] = 1
-
-    for i in range(len(features[3])):
-        features[3][i] = ''.join(features[3][i].split('.'))
-        features[4][i] = ''.join(features[4][i].split('.'))
-
-    features = features.T[1:]#.astype(np.float)
-    labels.pop(1)
-    labels = np.asarray(labels)
-    
-    #Turning labels into 1-hot vectors
-    dict_labels = {} #dictionnary containing index of each label in the 1-hot vector
-    i = 0
-    for label in labels:
-        if not label in dict_labels:
-            dict_labels[label] = i
-            i += 1
-
-    labels_one_hot = np.zeros((len(labels),len(dict_labels)), dtype = 'i')
-    for i in range(len(labels)):
-        labels_one_hot[i][dict_labels[labels[i]]] = 1
-
-    return DataSet(features, labels_one_hot, labels)"""
-    
-def load_dataset_barcelona(filename):
-
-    #Opening the file and reading it
-    info_file = open(filename)
-    text = info_file.read()
-
-    #regex to capture every line of the file into a list
-    regular_expression = r"(.+#)+"
-    res = re.findall(regular_expression, text)
-
-    #for each line, we split the features according to the "#" separator.
-    #We get a 2-dimensions (14*nb_flows) list
-    res = [l.split("#") for l in res]
-
-    #Getting rid of the unlabelled data + the last 3 features that are useless
-    for flow in res:
-        flow.pop()
-        flow.pop()
-        flow.pop()
-        flow.pop()
-        flow.pop(-2)
-        
-
-    #list of indexes of the unlabelled flow to delete them
-    indexes = []
-    for i in range(len(res)):
-        if res[i][8] == '-':        
-            indexes.append(i)
-    res = np.asarray(res)
-    
-    #Deleting flows with the above list of indexes
-    features = np.delete(res, indexes, 0).tolist()
-
-
-    #Extracting labels
-    labels = []
-    for flow in features:
-        labels.append(flow.pop())
-
-    features = np.asarray(features).T
-    for i in range(len(features[7])):
-        if features[7][i] == 'TCP':
-            features[7][i] = 0
-        elif features[7][i] == 'UDP':
-            features[7][i] = 1
-
-    for i in range(len(features[3])):
-        features[3][i] = ''.join(features[3][i].split('.'))
-        features[4][i] = ''.join(features[4][i].split('.'))
-
-    features = features.T[1:]#.astype(np.float)
-    features = [" ".join(feature) for feature in features]
-    labels.pop(1)
-    labels = np.asarray(labels)
-    
-    #Turning labels into 1-hot vectors
-    dict_labels = {} #dictionnary containing index of each label in the 1-hot vector
-    i = 0
-    for label in labels:
-        if not label in dict_labels:
-            dict_labels[label] = i
-            i += 1
-
-    labels_one_hot = np.zeros((len(labels),len(dict_labels)), dtype = 'i')
-    for i in range(len(labels)):
-        labels_one_hot[i][dict_labels[labels[i]]] = 1
-
-    return DataSet(features, labels_one_hot, labels)
-    
-
-
-#Split implementation and convert features into float array
 
 def split_data(arff_file):
 
@@ -217,8 +73,6 @@ def split_data(arff_file):
     feature_test_float = feature_test.astype(np.float)
 
     return feature_train_float,feature_test_float,label_train,label_test
-
-# KFold implementation to build training set and testing set
 
 def kfold_data(arff_file,num_folds):
     
@@ -232,7 +86,6 @@ def kfold_data(arff_file,num_folds):
 
     return feature_train,feature_test,label_train,label_test
 
-
 def plot_confusion_matrix(cm,clf,title="Confusion matrix",cmap=py.cm.Blues):
     
     py.imshow(cm,interpolation="nearest",cmap=cmap)
@@ -245,7 +98,3 @@ def plot_confusion_matrix(cm,clf,title="Confusion matrix",cmap=py.cm.Blues):
     py.ylabel("True label")
     py.xlabel("Predicted label")
     
-#data = load_dataset_barcelona("../../Data/Barcelona/packets_all_2.info")
-#print(data.features)
-
-

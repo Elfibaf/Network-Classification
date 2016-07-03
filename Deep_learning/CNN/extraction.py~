@@ -1,15 +1,17 @@
 import re
 import numpy as np
 import os
-import arff
 import matplotlib.pyplot as py
+import arff
+
 from sklearn.cross_validation import train_test_split,KFold
 
 class DataSet(object):
-    def __init__(self, features, labels):
+    def __init__(self, features, labels, l):
         self._features = features 
         self._labels = labels 
         self._nb_examples = labels.shape[0]
+        self._l = l
 
     @property
     def features(self):
@@ -18,26 +20,22 @@ class DataSet(object):
     @property
     def labels(self):
         return self._labels
+        
+    @property
+    def l(self):
+        return self._l
 
     @property
     def nb_examples(self):
         return self._nb_examples
+        
+    @property
+    def nb_classes(self):
+        return len({key: None for key in self._l})
 
+#Conversion of string attributes to float
+def string_attributes_to_float(nparray):
 
-#Creates a DataSet from an arff file
-def load_dataset(filename):
-    barray = []
-    for row in arff.load(filename):
-         barray.append(list(row))
-    labels = []
-    for row in barray:
-        labels.append(row.pop())
-        #row.pop()
-    nparray = np.array(barray)
-    labels = np.array(labels)
-
-
-    #Conversion of string attributes to float
     nparray = nparray.T
     for i in range(len(nparray[3])):
         if nparray[3][i] == 'TCP':
@@ -50,11 +48,23 @@ def load_dataset(filename):
         nparray[3][i] = ''.join(nparray[3][i].split('.'))
 
     nparray = nparray.T
+    return nparray
+
+#Creates a DataSet from an arff file
+def load_dataset(filename):
+
+    barray = []
+    for row in arff.load(filename):
+         barray.append(list(row))
+    labels = []
+    for row in barray:
+        labels.append(row.pop())
+        #row.pop()
+    # nparray=np.array(barray)
+    labels = np.array(labels) 
+    nparray = string_attributes_to_float(np.array(barray))
     
-
     return DataSet(nparray,labels)
-
-#Split implementation and convert features into float array
 
 def split_data(arff_file):
 
@@ -65,11 +75,9 @@ def split_data(arff_file):
 
     return feature_train_float,feature_test_float,label_train,label_test
 
-# KFold implementation to build training set and testing set
-
 def kfold_data(arff_file,num_folds):
     
-    Kf = KFold(arff_file.nb_examples,n_folds=num_folds)
+    Kf = KFold(arff_file.nb_examples,n_folds=num_folds,shuffle=True)
     for train_indices,test_indices in Kf:
         feature_train,feature_test = [arff_file.features[i] for i in train_indices],[arff_file.features[j] for j in test_indices]
         label_train,label_test = [ arff_file.labels[k] for k in train_indices],[arff_file.labels[l] for l in test_indices]
@@ -90,3 +98,4 @@ def plot_confusion_matrix(cm,clf,title="Confusion matrix",cmap=py.cm.Blues):
     py.tight_layout()
     py.ylabel("True label")
     py.xlabel("Predicted label")
+    
