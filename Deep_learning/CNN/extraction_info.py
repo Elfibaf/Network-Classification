@@ -1,6 +1,7 @@
 import re
 import numpy as np
 import os
+import pickle
 import matplotlib.pyplot as py
 import arff
 
@@ -48,26 +49,32 @@ def extract_labels(labels,features):
 
     features = features.T[1:]#.astype(np.float)
     features = [" ".join(feature) for feature in features]
-    labels.pop(1)
+    labels.pop(0)
     labels = np.asarray(labels)
 
     return labels,features
 
-def labels_into_1hot_vector(labels):
+def labels_into_1hot_vector(labels,train):
 
-    dict_labels = {} #dictionnary containing index of each label in the 1-hot vector
-    i = 0
-    for label in labels:
-        if not label in dict_labels:
-            dict_labels[label] = i
-            i += 1
+    if train:
+    	dict_labels = {} #dictionnary containing index of each label in the 1-hot vector
+    	i = 0
+    	for label in labels:
+       	 if not label in dict_labels:
+           	 dict_labels[label] = i
+            	 i += 1
+    	save_obj(dict_labels, "dict_labels")
+
+    else:
+        dict_labels = load_obj("dict_labels")
+
     labels_one_hot = np.zeros((len(labels),len(dict_labels)), dtype = 'i')
     for i in range(len(labels)):
         labels_one_hot[i][dict_labels[labels[i]]] = 1
 
-    return labels_one_hot
+    return labels_one_hot,dict_labels
 
-def load_dataset_barcelona(filename):
+def load_dataset_info(filename,train=True):
 
     #Opening the file and reading it
     info_file = open(filename)
@@ -91,6 +98,7 @@ def load_dataset_barcelona(filename):
     
     #list of indexes of the unlabelled flow to delete them
     indexes = []
+    res.pop(381940)
     for i in range(len(res)):
         if res[i][8] == '-':        
             indexes.append(i)
@@ -100,13 +108,22 @@ def load_dataset_barcelona(filename):
 
     features = np.delete(res, indexes, 0).tolist()
     
-    # Extract labels and convert
+    # Extract labels, store them in a pickle and convert them
     
     labels = []
     labels,features = extract_labels(labels,features)
-    labels_one_hot = labels_into_1hot_vector(labels)
+    labels_one_hot,dict_labels = labels_into_1hot_vector(labels,train)
     
-    return DataSet(features, labels_one_hot, labels)
+    return DataSet(features, labels_one_hot,dict_labels)
+
+#To save an object into a file
+def save_obj(obj, name ):
+    with open(name + '.pkl', 'wb') as f:
+        pickle.dump(obj, f, pickle.HIGHEST_PROTOCOL)
 
 
+# To load an object 
+def load_obj(name ):
+    with open(name + '.pkl', 'rb') as f:
+        return pickle.load(f)
 

@@ -8,7 +8,7 @@ import datetime
 import data_helpers
 from text_cnn import TextCNN
 from tensorflow.contrib import learn
-from extraction import load_dataset_info, save_obj
+from extraction_info import load_dataset_info, save_obj,load_obj
 
 # Parameters
 # ==================================================
@@ -42,7 +42,7 @@ print("")
 
 # Load data
 print("Loading data...")
-Data = load_dataset_info("../../../Data/Barcelona/packets_all_2.info", False)
+Data = load_dataset_info("../../../Data/Info_file/packets_all.info", True)
 x_text, y = Data.features, Data.labels
 
 # Build vocabulary
