@@ -110,8 +110,6 @@ def load_dataset_barcelona(filename):
 
     return DataSet(features, labels[1:])
 
-
-
 #Split implementation and convert features into float array
 
 def split_data(arff_file):
@@ -136,3 +134,16 @@ def kfold_data(arff_file,num_folds):
     feature_train_list = np.asarray(feature_train)
 
     return feature_train,feature_test,label_train,label_test
+
+def plot_confusion_matrix(cm,clf,title="Confusion matrix",cmap=py.cm.Blues):
+    
+    py.imshow(cm,interpolation="nearest",cmap=cmap)
+    py.title(title)
+    py.colorbar()
+    tick_marks = np.arange(len(clf.classes_))
+    py.xticks(tick_marks,clf.classes_,rotation=45)
+    py.yticks(tick_marks,clf.classes_)
+    py.tight_layout()
+    py.ylabel("True label")
+    py.xlabel("Predicted label")
+    

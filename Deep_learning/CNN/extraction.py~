@@ -155,7 +155,7 @@ def load_dataset_info(filename, train=True):
     
     #Deleting flows with the above list of indexes
     features = np.delete(res, indexes, 0).tolist()
-    labels = []
+    
     for flow in features:
         labels.append(flow.pop())
 

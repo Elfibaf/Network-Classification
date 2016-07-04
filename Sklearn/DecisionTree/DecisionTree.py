@@ -16,8 +16,10 @@ from sklearn.metrics import confusion_matrix,recall_score,precision_score
 
 # Step 1 : Import Arff file
 
+
 #arff_file = load_dataset("../../Data/Caida/features_caida_flowcalc2.arff")
 arff_file = load_dataset_barcelona('../../../Data/Barcelona/packets_all_2.info')
+
 print "\tTotal dataset : "
 print "\tNumber of samples:",arff_file.nb_examples
 print "\tNumber of features:",len(arff_file.features[0])

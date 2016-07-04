@@ -1,0 +1,116 @@
+BernouillNB 
+
+	-> packet 3 et k_fold
+
+	Number of samples: 131326
+	Number of features: 8
+	Training time  0.285 s
+	Max probablilite  0.0278835305
+	Predicting time:  0.004 s
+	Precision : 0.896588486141
+	Recall : 0.896588486141
+	Test Accuracy : 0.896588486141
+	Train Accuracy: 0.891255055248
+
+	-> packet 1 et k_fold
+
+	Number of samples: 141252
+	Number of features: 8
+	Training time  0.317 s
+	Max probablilite  0.0050339869
+	Predicting time:  0.005 s
+	Precision : 0.642477876106
+	Recall : 0.642477876106
+	Test Accuracy : 0.642477876106
+	Train Accuracy: 0.645000668623
+
+	-> packet 2 et k_fold
+
+	Number of samples: 248415
+	Number of features: 8
+	Training time  0.683 s
+	Max probablilite  0.0617337225
+	Predicting time:  0.013 s
+	Precision : 0.802302644821
+	Recall : 0.802302644821
+	Test Accuracy : 0.802302644821
+	Train Accuracy: 0.80717346382
+
+GaussianNB
+
+	-> packet 1 et k_fold
+	
+	Number of samples: 141252
+	Number of features: 8
+	Training time  0.19 s
+	Number of Classes : 22
+	Predicting time:  0.082 s
+	Precision : 0.806230088496
+	Recall : 0.806230088496
+	Test Accuracy : 0.806230088496
+	Train Accuracy: 0.857850810607
+
+	-> packet 2 et k_fold
+		
+	Number of samples: 248415
+	Number of features: 8
+	Training time  0.489 s
+	Number of Classes : 26
+	Predicting time:  0.158 s
+	Precision : 0.832132361821
+	Recall : 0.832132361821
+	Test Accuracy : 0.832132361821
+	Train Accuracy: 0.93835598057
+
+	-> packet 3 et k_fold
+
+	Number of samples: 131326
+	Number of features: 8
+	Training time  0.143 s
+	Number of Classes : 13
+	Predicting time:  0.047 s
+	Precision : 0.654660371611
+	Recall : 0.654660371611
+	Test Accuracy : 0.654660371611
+	Train Accuracy: 0.797045535306
+
+MultinomialNB : 
+
+	-> packet 1 et k_fold
+	
+	Number of samples: 141252
+	Number of features: 8
+	Training time  0.254 s
+	Max probablilite  0.0050731032
+	Predicting time:  0.004 s
+	Precision : 0.540743362832
+	Recall : 0.540743362832
+	Test Accuracy : 0.540743362832
+	Teain Accuracy: 0.543149763622
+
+
+	-> packet 2 et k_fold
+
+	Number of samples: 248415
+	Number of features: 8
+	Training time  0.695 s
+	Max probablilite  0.0616250949
+	Predicting time:  0.007 s
+	Precision : 0.763214041303
+	Recall : 0.763214041303
+	Test Accuracy : 0.763214041303
+	Teain Accuracy: 0.768014169805
+
+
+	-> packet 3 et k_fold
+
+	Number of samples: 131326
+	Number of features: 8
+	Training time  0.243 s
+	Max probablilite  0.027865535
+	Predicting time:  0.002 s
+	Precision : 0.801934206518
+	Recall : 0.801934206518
+	Test Accuracy : 0.801934206518
+	Teain Accuracy: 0.801132037159
+

@@ -24,7 +24,7 @@ tf.flags.DEFINE_float("l2_reg_lambda", 0.0, "L2 regularizaion lambda (default: 0
 tf.flags.DEFINE_integer("batch_size", 64, "Batch Size (default: 64)")
 tf.flags.DEFINE_integer("num_epochs", 200, "Number of training epochs (default: 200)")
 tf.flags.DEFINE_integer("evaluate_every", 100, "Evaluate model on dev set after this many steps (default: 100)")
-tf.flags.DEFINE_integer("checkpoint_every", 50, "Save model after this many steps (default: 100)")
+tf.flags.DEFINE_integer("checkpoint_every", 100, "Save model after this many steps (default: 100)")
 # Misc Parameters
 tf.flags.DEFINE_boolean("allow_soft_placement", True, "Allow device soft device placement")
 tf.flags.DEFINE_boolean("log_device_placement", False, "Log placement of ops on devices")
@@ -42,7 +42,7 @@ print("")
 
 # Load data
 print("Loading data...")
-Data = load_dataset_info("../../Data/Barcelona/packets_all_2.info", False)
+Data = load_dataset_info("../../../Data/Barcelona/packets_all.info", True)
 x_text, y = Data.features, Data.labels
 
 # Build vocabulary
@@ -70,6 +70,7 @@ print("Train/Dev split: {:d}/{:d}".format(len(y_train), len(y_dev)))
 # Training
 # ==================================================
 
+t0 = time.time()
 with tf.Graph().as_default():
     session_conf = tf.ConfigProto(
       allow_soft_placement=FLAGS.allow_soft_placement,
@@ -183,3 +184,4 @@ with tf.Graph().as_default():
                 print("Saved model checkpoint to {}\n".format(path))
         path = saver.save(sess, checkpoint_prefix, global_step=current_step)
         print("Saved model checkpoint to {}\n".format(path))
+print("Training time:",time.time()-t0)

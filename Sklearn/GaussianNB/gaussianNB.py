@@ -16,7 +16,8 @@ from sklearn.preprocessing import MinMaxScaler
 
 # Step 1 : Import Arff file 
 
-arff_file = load_dataset("../../Data/Caida/features_stats_best.arff")
+arff_file = load_dataset("../../Data/Caida/Features_flowcalc/features_stats_best.arff")
+#arff_file = load_dataset_barcelona("../../Data/Info_file/packets_all_3.info")
 print "Total dataset : "
 print "\tNumber of samples:",arff_file.nb_examples
 print "\tNumber of features:",len(arff_file.features[0])
