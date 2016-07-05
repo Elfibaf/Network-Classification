@@ -42,7 +42,7 @@ print("")
 
 # Load data
 print("Loading data...")
-Data = load_dataset_info("../../../Data/Info_file/packets_all_3.info", True)
+Data = load_dataset_info("../../Data/Info_file/packets_all_3.info", True)
 x_text, y = Data.features, Data.labels
 
 # Build vocabulary
