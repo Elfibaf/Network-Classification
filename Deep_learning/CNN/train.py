@@ -8,7 +8,7 @@ import datetime
 import data_helpers
 from text_cnn import TextCNN
 from tensorflow.contrib import learn
-from extraction import load_dataset_info, save_obj
+from extraction_info import load_dataset_info, save_obj,load_obj
 
 # Parameters
 # ==================================================
