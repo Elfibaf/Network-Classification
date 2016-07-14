@@ -170,7 +170,6 @@ def load_dataset_barcelona(filename):
     
     labels = []
     labels,features = extract_labels(labels,features)
-    labels_one_hot = labels_into_1hot_vector(labels)
 
-    return DataSet(features, labels_one_hot, labels[1:])
+    return DataSet(features,labels[1:],0)
 

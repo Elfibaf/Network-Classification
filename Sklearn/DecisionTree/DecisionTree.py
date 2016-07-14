@@ -37,7 +37,7 @@ def main():
 
     print "\tTraining time: ", round(time.time()-t0, 3), "s"
     print "\tNumber of Classes :", len(clf.classes_)
-
+   
     t1 = time.time()
     label_pred = clf.predict(feature_test)
     print "\tPredicting time: ", round(time.time()-t1, 3), "s"
