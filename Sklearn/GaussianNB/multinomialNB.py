@@ -17,7 +17,7 @@ def main():
 
     """ Importing Arff file """
 
-    arff_file = load_dataset("../../Data/Caida/Features_flowcalc/features_stats_best.arff")
+    arff_file = load_dataset("../../Data/Caida/Features_flowcalc/data_caida_original.arff")
     #arff_file=load_dataset_barcelona("../../Data/Info_file/packets_all_1.info")
     print "Total dataset : "
     print "\tNumber of samples:", arff_file.nb_examples

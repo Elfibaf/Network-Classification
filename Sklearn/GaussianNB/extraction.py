@@ -53,9 +53,9 @@ def string_attributes_to_float(nparray):
         elif nparray[3][i] == 'UDP':
             nparray[3][i] = 1
 
-    for i in range(len(nparray[3])):
-        nparray[1][i] = ''.join(nparray[1][i].split('.'))
-        nparray[3][i] = ''.join(nparray[3][i].split('.'))
+    for i in range(len(nparray[6])):
+        nparray[4][i] = ''.join(nparray[4][i].split('.'))
+        nparray[6][i] = ''.join(nparray[6][i].split('.'))
 
     nparray = nparray.T
     return nparray
@@ -73,6 +73,7 @@ def load_dataset(filename):
     nparray = np.array(barray)
     labels = np.array(labels)
 
+    nparray = string_attributes_to_float(nparray)
     return DataSet(nparray, labels, 0)
 
 

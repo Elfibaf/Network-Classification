@@ -247,3 +247,38 @@ Training loss did not improve more than tol=0.000100 for two consecutive epochs.
 
 L'utilisation de KFold nous donne des résultats satisfaisant avec 82% d'accuracy pour k =10 mais les autres avec k=2 ou k=15 donnent 64% et 74% respectivement
 Sur du MLP classique
+
+
+Data_caida original avec kfold 10 sans feature selection et paramètres classiques
+
+	Training  time  416.679 s
+	Predicting time  0.621 s
+	Number of Classes : 157
+	Precision : 0.653267848324
+	Recall : 0.653267848324
+	Test Accuracy : 0.653267848324
+	Training Accuracy : 0.67082903987
+
+Data_caida original avec kfold 10 avec feature selection (mlp_kbest) et paramètres classiques
+
+	Training  time  353.385 s
+	Predicting time  0.661 s
+	Number of Classes : 158
+	Precision : 0.409592273501
+	Recall : 0.409592273501
+	Test Accuracy : 0.409592273501
+	Training Accuracy : 0.411297550744
+Meilleur avec 9 itérations.
+
+
+Data_caida original avec kfold 10 avec feature selection (mlp_kthresold à 0.08) et paramètres classiques
+
+	Training  time  118.257 s
+	Predicting time  0.622 s
+	Number of Classes : 161
+	Precision : 0.416177358283
+	Recall : 0.416177358283
+	Test Accuracy : 0.416177358283
+	Training Accuracy : 0.417763659311
+Pas plus de 6 itérations
+

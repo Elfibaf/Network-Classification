@@ -46,10 +46,10 @@ def load_dataset(filename):
         #row.pop()
     nparray = np.array(barray)
     labels = np.array(labels)
-
+    print nparray[0]
 
     """Conversion of string attributes to float"""
-    """nparray = nparray.T
+    nparray = nparray.T
     for i in range(len(nparray[3])):
         if nparray[3][i] == 'TCP':
             nparray[3][i] = 0
@@ -60,7 +60,8 @@ def load_dataset(filename):
         nparray[1][i] = ''.join(nparray[1][i].split('.'))
         nparray[3][i] = ''.join(nparray[3][i].split('.'))
 
-    nparray = nparray.T"""
+    nparray = nparray.T
+    print nparray[0]
     return DataSet(nparray, labels)
 
 def load_dataset_barcelona(filename):
@@ -120,7 +121,7 @@ def split_data(arff_file):
     feature_train_float = feature_train.astype(np.float)
     feature_test_float = feature_test.astype(np.float)
 
-    return feature_train_float, feature_test_float, label_train, label_test
+    return feature_train, feature_test, label_train, label_test
 
 def kfold_data(arff_file, num_folds):
     """KFold implementation to build training set and testing set"""
@@ -133,7 +134,7 @@ def kfold_data(arff_file, num_folds):
     feature_test_list = np.asarray(feature_test)
     feature_train_list = np.asarray(feature_train)
 
-    return feature_train_list, feature_test_list, label_train, label_test
+    return feature_train, feature_test, label_train, label_test
 
 def plot_confusion_matrix(cm, clf, title="Confusion matrix", cmap=py.cm.Blues):
     """Plotting matrix_confusion for information"""

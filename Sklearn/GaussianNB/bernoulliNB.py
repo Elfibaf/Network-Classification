@@ -16,8 +16,8 @@ def main():
 
     """ Step 1 : Import Arff file """
 
-    #arff_file = load_dataset("../../Data/Caida/Features_flowcalc/features_stats_best.arff")
-    arff_file = load_dataset_barcelona("../../Data/Info_file/packets_all_2.info")
+    arff_file = load_dataset("../../Data/Caida/Features_flowcalc/data_caida_original.arff")
+    #arff_file = load_dataset_barcelona("../../Data/Info_file/packets_all_2.info")
     print "Total dataset : "
     print "\tNumber of samples:", arff_file.nb_examples
     print "\tNumber of features:", len(arff_file.features[0])
@@ -31,7 +31,7 @@ def main():
     feature_train_rescaled = scaler.fit_transform(feature_train)
     feature_test_rescaled = scaler.fit_transform(feature_test)
 
-    clf = BernoulliNB(binarize=0.01)
+    clf = BernoulliNB(binarize=0.5)
     time_0 = time.time()
     clf.fit(feature_train_rescaled, label_train)
     print "\tTraining time ", round(time.time()-time_0, 3), "s"

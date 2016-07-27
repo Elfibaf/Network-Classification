@@ -118,4 +118,12 @@ With 30 iterations,normalized features and tradionnal split:
 	Test Accuracy : 0.236818506726
 	Training Accuracy : 0.235487280793
 
+With 30 iterations,normalized features and Kfold split avec k=10 data_caida_original:
 
+	Training time  260.718 s
+	Predicting time  0.076 s
+	Number of Classes : 158
+	Precision : 0.465620369862
+	Recall : 0.465620369862
+	Test Accuracy : 0.465620369862
+	Training Accuracy : 0.467413373656

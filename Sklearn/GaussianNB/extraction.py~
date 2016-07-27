@@ -11,7 +11,7 @@ import arff
 from sklearn.cross_validation import train_test_split, KFold
 
 class DataSet(object):
-    """Dataset class for features,labels and number of examples from file"""
+    """Dataset class created from file"""
     def __init__(self, features, labels, l):
         self._features = features
         self._labels = labels
@@ -30,6 +30,7 @@ class DataSet(object):
 
     @property
     def l(self):
+        """Return the labels' dictionnary"""
         return self._l
 
     @property
@@ -39,6 +40,7 @@ class DataSet(object):
 
     @property
     def nb_classes(self):
+        """Return the number of classes"""
         return len({key: None for key in self._l})
 
 
@@ -51,9 +53,9 @@ def string_attributes_to_float(nparray):
         elif nparray[3][i] == 'UDP':
             nparray[3][i] = 1
 
-    for i in range(len(nparray[3])):
-        nparray[1][i] = ''.join(nparray[1][i].split('.'))
-        nparray[3][i] = ''.join(nparray[3][i].split('.'))
+    for i in range(len(nparray[6])):
+        nparray[4][i] = ''.join(nparray[4][i].split('.'))
+        nparray[6][i] = ''.join(nparray[6][i].split('.'))
 
     nparray = nparray.T
     return nparray
@@ -71,6 +73,7 @@ def load_dataset(filename):
     nparray = np.array(barray)
     labels = np.array(labels)
 
+    string_attributes_to_float
     return DataSet(nparray, labels, 0)
 
 
@@ -172,7 +175,7 @@ def load_dataset_barcelona(filename):
     #list of indexes of the unlabelled flow to delete them
     indexes = []
     for i in range(len(list_lines_splitted)):
-        if list_lines_splitted[i][8] == '-':    
+        if list_lines_splitted[i][8] == '-':
             indexes.append(i)
     list_lines_splitted_array = np.asarray(list_lines_splitted)
 

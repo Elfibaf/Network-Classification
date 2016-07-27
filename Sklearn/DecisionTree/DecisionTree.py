@@ -9,17 +9,17 @@ import time
 import matplotlib.pyplot as py
 import numpy as np
 
-from extraction import load_dataset, load_dataset_barcelona, plot_confusion_matrix, kfold_data
+from extraction import load_dataset, load_dataset_barcelona, plot_confusion_matrix, kfold_data, split_data
 from sklearn import tree
 from sklearn.metrics import confusion_matrix, recall_score, precision_score
 
 
 def main():
 
-    """ Step 1: Import Arff file """
+    """ Main program """
 
-    #arff_file = load_dataset("../../Data/Caida/features_caida_flowcalc2.arff")
-    arff_file = load_dataset_barcelona('../../Data/Info_file/packets_all_2.info')
+    #arff_file = load_dataset("../../Data/Caida/Features_flowcalc/data_caida_original.arff")
+    arff_file = load_dataset_barcelona('../../Data/Info_file/packets_all.info')
 
     print "\tTotal dataset : "
     print "\tNumber of samples:", arff_file.nb_examples
@@ -27,7 +27,7 @@ def main():
 
     """ Step 2: Building training_set and test_set """
 
-    feature_train, feature_test, label_train, label_test = kfold_data(arff_file, 10)
+    feature_train, feature_test, label_train, label_test = kfold_data(arff_file,10)
 
     """Step 3 : Fitting and training """
 

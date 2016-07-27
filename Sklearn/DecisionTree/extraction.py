@@ -46,7 +46,7 @@ def load_dataset(filename):
         #row.pop()
     nparray = np.array(barray)
     labels = np.array(labels)
-
+    print nparray[0]
 
     """Conversion of string attributes to float"""
     nparray = nparray.T
@@ -56,11 +56,12 @@ def load_dataset(filename):
         elif nparray[3][i] == 'UDP':
             nparray[3][i] = 1
 
-    for i in range(len(nparray[3])):
-        nparray[1][i] = ''.join(nparray[1][i].split('.'))
-        nparray[3][i] = ''.join(nparray[3][i].split('.'))
+    for i in range(len(nparray[6])):
+        nparray[4][i] = ''.join(nparray[4][i].split('.'))
+        nparray[6][i] = ''.join(nparray[6][i].split('.'))
 
     nparray = nparray.T
+    print nparray[0]
     return DataSet(nparray, labels)
 
 def load_dataset_barcelona(filename):
@@ -85,7 +86,8 @@ def load_dataset_barcelona(filename):
 
     """list of indexes of the unlabelled flow to delete them"""
     indexes = []
-    for i in range(0, len(list_lines_splited)):
+    print list_lines_splited[381940]
+    for i in range(0,len(list_lines_splited)):
         if list_lines_splited[i][8] == '-':
             indexes.append(i)
     list_lines_splited_array = np.asarray(list_lines_splited)
@@ -120,7 +122,7 @@ def split_data(arff_file):
     feature_train_float = feature_train.astype(np.float)
     feature_test_float = feature_test.astype(np.float)
 
-    return feature_train_float, feature_test_float, label_train, label_test
+    return feature_train, feature_test, label_train, label_test
 
 def kfold_data(arff_file, num_folds):
     """KFold implementation to build training set and testing set"""
@@ -133,7 +135,7 @@ def kfold_data(arff_file, num_folds):
     feature_test_list = np.asarray(feature_test)
     feature_train_list = np.asarray(feature_train)
 
-    return feature_train_list, feature_test_list, label_train, label_test
+    return feature_train, feature_test, label_train, label_test
 
 def plot_confusion_matrix(cm, clf, title="Confusion matrix", cmap=py.cm.Blues):
     """Plotting matrix_confusion for information"""

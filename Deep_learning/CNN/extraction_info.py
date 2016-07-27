@@ -98,7 +98,6 @@ def load_dataset_info(filename,train=True):
     
     #list of indexes of the unlabelled flow to delete them
     indexes = []
-    res.pop(381940)
     for i in range(len(res)):
         if res[i][8] == '-':        
             indexes.append(i)

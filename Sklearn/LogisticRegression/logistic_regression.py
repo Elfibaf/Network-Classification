@@ -6,22 +6,23 @@ LogisticClassifier for ARFF traffic network file
 
 import time
 
-from extraction import load_dataset, split_data, kfold_data
+from extraction import load_dataset, load_dataset_barcelona, split_data, kfold_data
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import precision_score, recall_score
 
 def main():
     """ Load arff file"""
 
-    arff_file = load_dataset("../../Data/data_caida_original.arff")
+    arff_file = load_dataset("../../Data/Caida/Features_flowcalc/features_stats_best.arff")
+    #arff_file = load_dataset_barcelona("../../Data/Info_file/packets_all_1.info")
     print "\tTotal dataset : "
     print "\tNumber of samples:", arff_file.nb_examples
     print "\tNumber of features:", len(arff_file.features[0])
 
     """ Building training_set and test_set """
 
-    feature_train, feature_test, label_train, label_test = split_data(arff_file)
-    #feature_train, feature_test, label_train, label_test = kfold_data(arff_file)
+    #feature_train, feature_test, label_train, label_test = split_data(arff_file)
+    feature_train, feature_test, label_train, label_test = kfold_data(arff_file,10)
 
     """ Modeling and training our classifier with training's time
     LogisticRegression parameters:solver to minimize loss function and multi_class='multinomial' for multi_class problem to use the sofmax function to find the predicted probability of each class """

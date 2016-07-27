@@ -42,11 +42,7 @@ print("")
 
 # Load data
 print("Loading data...")
-<<<<<<< HEAD
-Data = load_dataset_info("../../Data/Info_file/packets_all_3.info", True)
-=======
-Data = load_dataset_info("../../../Data/Barcelona/packets_all.info", False)
->>>>>>> 5f8edeb72d28d6c8ba7cd92aac8642c2bcbdd53a
+Data = load_dataset_info("../../Data/Info_file/packets_all_2.info", True)
 x_text, y = Data.features, Data.labels
 
 # Build vocabulary
@@ -188,4 +184,4 @@ with tf.Graph().as_default():
                 print("Saved model checkpoint to {}\n".format(path))
         path = saver.save(sess, checkpoint_prefix, global_step=current_step)
         print("Saved model checkpoint to {}\n".format(path))
-print("Training time:",time.time()-t0)
+	print("Training time:",time.time()-t0)

@@ -5,14 +5,16 @@
 """
 
 import extraction
+import time
 
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.grid_search import GridSearchCV
+from sklearn.metrics import confusion_matrix, precision_score, recall_score
 
 def main():
-    """ Importing an arff file """
+    """ Main program """
 
-    data = extraction.load_dataset("../../Data/Caida/features_stats_best.arff")
+    #data = extraction.load_dataset("../../Data/Caida/Features_flowcalc/data_caida_original.arff")
+    data = extraction.load_dataset_barcelona('../../Data/Info_file/packets_all_3.info')
 
     print "\tTotal dataset : "
     print "\tNumber of samples:", data.nb_examples
@@ -22,22 +24,22 @@ def main():
 
     feature_train, feature_test, label_train, label_test = extraction.kfold_data(data, 10)
 
-    """param_grid = {"max_depth": [3, None],
-                     "max_features": [1, 3, 8],
-                     "min_samples_split": [1, 3, 10],
-                     "min_samples_leaf": [1, 3, 10],
-                     "bootstrap": [True, False],
-                     "criterion": ["gini", "entropy"]}"""
-
-    #model = GridSearchCV(RandomForestClassifier(n_estimators=20), param_grid)
     model = RandomForestClassifier()
+    time_0 = time.time()
     model.fit(feature_train, label_train)
+    print "\tTraining time ", round(time.time()-time_0, 3), "s"
 
+    time_1 = time.time()
     predicted = model.predict(feature_test)
 
-    print("Prediction : ", predicted, "\n")
-    print("Labels : ", label_test, "\n")
-    print("Score : ", model.score(feature_test, label_test))
+    print "\tPredicting time ", round(time.time()-time_1, 3), "s"
+    print "\tNumber of Classes :", len(model.classes_)
+
+    print "\tPrecision :", precision_score(label_test, predicted, average='micro')
+    print "\tRecall :", recall_score(label_test, predicted, average='micro')
+
+    print "\tTest Accuracy :", model.score(feature_test, label_test)
+    print "\tTraining Accuracy :", model.score(feature_train, label_train)
 
 if __name__ == '__main__':
     main()

@@ -1,0 +1,29 @@
+Pour data_caida original sans aucune feature_selection avec k_fold
+
+	Total dataset : 
+	Number of samples: 364464
+	Number of features: 8
+	Training time:  5.047 s
+	Number of Classes : 160
+	Predicting time:  0.129 s
+	Precision : 0.993305163804
+	Recall : 0.993305163804
+	Test Accuracy : 0.993305163804
+	Train Accuracy: 1.0
+
+Pour data_caida original avec feature selection (utilisation de SelectKBestFeature) on conserve les 4 meilleurs features
+
+	Number of samples: 364464
+	Number of features: 8
+Best scores : 
+[    7.93440881  -359.50953947   297.8646394   3397.87786082   187.46920283
+   484.87589034   184.19228416   940.95422442]
+[  0.00000000e+00   1.00000000e+00   9.48700000e+03   1.07350000e+04]
+	Training time:  1.322 s
+	Number of Classes : 152
+	Predicting time:  0.071 s
+	Precision : 0.995950217305
+	Recall : 0.995950217305
+	Test Accuracy : 0.995950217305
+	Teain Accuracy: 1.0
+

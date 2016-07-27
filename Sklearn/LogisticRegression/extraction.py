@@ -47,8 +47,8 @@ def load_dataset(filename):
     nparray = np.array(barray)
     labels = np.array(labels)
 
-
-    """Conversion of string attributes to float"""
+    
+    """Conversion of string attributes to float
     nparray = nparray.T
     for i in range(len(nparray[3])):
         if nparray[3][i] == 'TCP':
@@ -61,6 +61,7 @@ def load_dataset(filename):
         nparray[3][i] = ''.join(nparray[3][i].split('.'))
 
     nparray = nparray.T
+    """
     return DataSet(nparray, labels)
 
 def load_dataset_barcelona(filename):

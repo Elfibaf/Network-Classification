@@ -1,0 +1,13 @@
+	Number of samples: 364464
+	Number of features: 8
+	Training time:  321.588 s
+	Number of Classes : 152
+	Predicting time:  0.233 s
+	Precision : 0.313051494798
+	Recall : 0.313051494798
+	Test Accuracy : 0.313051494798
+	Training Accuracy : 0.314975781787
+
+Caida_data_original sans feature selection avec split_data et logistic regression
+
+

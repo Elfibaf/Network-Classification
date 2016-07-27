@@ -1,0 +1,35 @@
+Info 1 :
+    
+   	Number of samples: 141252
+	Number of features: 8
+        Number of classes:', 22)
+	Precision : 0.925451327434
+	Recall : 0.925451327434
+	Test Accuracy : 0.925451327434
+	Train Accuracy: 0.949507185728
+    
+        (0.88 for Caida)
+
+Info 2 :
+    
+	Number of samples: 248415
+	Number of features: 8
+	Number of classes: 26
+	Training time  151.915 s
+	Precision : 0.971579243992
+	Recall : 0.971579243992
+	Test Accuracy : 0.971579243992
+	Train Accuracy: 0.979872435972
+
+    
+Info 3 :
+    
+    	Number of samples: 131326
+	Number of features: 8
+	Number of classes: 13
+	Training time  53.451 s
+	Precision : 0.949512640877
+	Recall : 0.949512640877
+	Test Accuracy : 0.949512640877
+	Train Accuracy: 0.961131698733
+

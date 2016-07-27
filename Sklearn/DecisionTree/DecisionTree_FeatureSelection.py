@@ -18,7 +18,7 @@ def main():
 
     # Step 1 : Import Arff file
 
-    arff_file = load_dataset("../../Data/Caida/Features_flowcalc/features_all.arff")
+    arff_file = load_dataset("../../Data/Caida/Features_flowcalc/data_caida_original.arff")
     print "\tTotal dataset : "
     print "\tNumber of samples:", arff_file.nb_examples
     print "\tNumber of features:", len(arff_file.features[0])
@@ -37,8 +37,6 @@ def main():
 
     #feature_train_float = feature_train.astype(np.float)
     #feature_test_float = feature_test.astype(np.float)
-
-    print(feature_train_float[1])
 
     clf = tree.DecisionTreeClassifier()
     t0 = time.time()

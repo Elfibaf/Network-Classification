@@ -51,9 +51,6 @@ def string_attributes_to_float(nparray):
 
     return nparray
 
-
-
-
 #Loads a dataset from a .info file from the Barcelona data
 """def load_dataset_barcelona(filename):
 

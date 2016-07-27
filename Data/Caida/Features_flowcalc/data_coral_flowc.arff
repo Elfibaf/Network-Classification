@@ -12,6 +12,7 @@
 % fc_src_port: TP port number of connection initiator
 % fc_dst_addr: IP address of remote peer
 % fc_dst_port: TP port number of remote peer
+
 @attribute fc_id numeric
 @attribute fc_tstamp numeric
 @attribute fc_duration numeric
